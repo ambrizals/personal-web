@@ -30,8 +30,8 @@ Pembaruan pada modul profil
 
 ## Versi 0.2
 Pembaruan pada modul profil
-- Update foto profil
-- Fix change password
+- Adding captcha in change password
+- Fix cannot update password in database
 
 # Laravel
 
