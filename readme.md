@@ -17,6 +17,10 @@ Informasi user :
 
 Versi 0.1 merupakan versi awal dalam pembuatan akun, dimana nantinya pemilik harus melakukan login saat memanage websitenya sendiri.
 
+## Versi 0.1.3
+Pembaruan pada modul profil
+- Update foto profil
+
 # Laravel
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>

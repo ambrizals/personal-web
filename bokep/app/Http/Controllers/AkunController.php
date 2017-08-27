@@ -34,6 +34,7 @@ class AkunController extends Controller
     	echo $akun;
     }
     public function update(Request $request) {
+      //Validasi 
       $this->validate($request, [
         'fotoprofil' => 'image|mimes:jpeg,png,jpg'
       ]);
