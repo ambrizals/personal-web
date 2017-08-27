@@ -45,6 +45,7 @@ class AkunController extends Controller
 
         $destinationPath = ('img/profil');
         $ubah_foto = Image::make($fotoprofil->getRealPath())->resize(150,150);
+        unlink($destinationPath.'/'.Auth::user()->fotoprofil);
         $ubah_foto->save($destinationPath.'/'.$namafoto,80);
       }else {
         $namafoto = Auth::user()->fotoprofil;
