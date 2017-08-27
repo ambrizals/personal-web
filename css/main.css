@@ -1,0 +1,29 @@
+footer{
+	width: 100%;
+	padding:20px 0 20px 0;
+	margin-top:2em;
+}
+.member {
+    padding:10px 0;
+}
+.box-style {
+	border-radius:0;
+}
+.box-page {
+	padding:2rem;
+	border-radius: 0;
+}
+.content {
+	color:white;
+}
+.panel-profil .nav-link.disabled{
+	padding-left: 0;
+}
+.error-panel {
+	margin:10% 0;
+}
+.btn-ico {
+	padding-right: 10px;
+  border-right: solid 1px;
+  margin-right: 5px;
+}
