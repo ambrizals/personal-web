@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Ubah Password')
 @section('content')
+<link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet">
 @If (Session::has('pw_error'))
 <div class="alert alert-danger">
 	{{ Session::get('pw_error') }}
@@ -56,6 +57,19 @@
 				<div class="form-group">
 					{!! Form::label('password_konfirmasi', 'Konfirmasi Password Baru') !!}
 					{!! Form::password('password_konfirmasi', ['class' => 'form-control', 'placeholder' => 'Ulangi password baru']) !!}
+				</div>
+				<div class="form-group">
+					{!! Form::label('captcha', 'Masukkan Captcha') !!}
+					<div class="row">
+						<div class="col-md-5">
+							{!! captcha_image_html('Captchaku') !!}
+							{!! Form::text('captcha', null, ['class' => 'form-control mt-2', 'placeholder' => 'Masukkan Captcha Dengan Benar !']) !!}
+						</div>
+						<div class="col-md-7">
+							<p class="alert alert-info">Untuk memastikan bahwa password dirubah oleh pengguna, silahkan masukkan captcha dengan benar.</p>
+						</div>
+						
+					</div>
 				</div>
 				{!! Form::submit('Simpan Perubahan', ['class' => 'btn btn-primary btn-block']) !!}
 				{!! Form::close() !!}

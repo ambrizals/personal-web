@@ -65,6 +65,9 @@ class AkunController extends Controller
       $user = User::find(Auth::id());
     	$passwordlama = $user->password;
       if (Hash::check($requestPassword->old_password, $passwordlama)) {
+        Auth::user()->update([
+          'password' => bcrypt($requestPassword->password_konfirmasi)
+        ]);
         return redirect('akun')->with('pesan','Password berhasil dirubah');
       } else {
         return redirect('akun/ubahpassword')->with('pw_error','Password lama tidak sama dengan password saat ini.');

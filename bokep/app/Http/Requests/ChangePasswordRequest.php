@@ -27,6 +27,7 @@ class ChangePasswordRequest extends FormRequest
             'old_password' => 'required',
             'password_baru' => 'required',
             'password_konfirmasi' => 'required|same:password_baru',
+            'captcha' => 'required|valid_captcha'
         ];
     }
 
@@ -36,6 +37,8 @@ class ChangePasswordRequest extends FormRequest
             'password_baru.required' => 'Password baru harus di isi',
             'password_konfirmasi.required' => 'Password konfirmasi harus di isi',
             'password_konfirmasi.same' => 'Password konfirmasi harus sama dengan password baru',
+            'captcha.required' => 'Kode captcha harus dimasukkan',
+            'captcha.valid_captcha' => 'Kode captcha yang dimasukkan salah !',
         ];
     }
 }

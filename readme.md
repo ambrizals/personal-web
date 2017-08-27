@@ -28,6 +28,11 @@ Versi 0.1 merupakan versi awal dalam pembuatan akun, dimana nantinya pemilik har
 Pembaruan pada modul profil
 - Update foto profil
 
+## Versi 0.2
+Pembaruan pada modul profil
+- Update foto profil
+- Fix change password
+
 # Laravel
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
