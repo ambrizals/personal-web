@@ -6,8 +6,15 @@ Aplikasi web ini dibuat menggunakan laravel dengan tujuan untuk membuat sebuah w
 - Page Builder
 
 ## Getting started
-Untuk menggunakannya anda perlu memahami spesifikasi yang dibutuhkan oleh laravel 5.4, seluruh persiapan dapat digunakan berdasarkan dokumentasi yang terdapat pada laravel 5.4.
-Karena fungsi registrasi akun pada project ini di matikan, gunakan perintah "php artisan migrate:refresh --seed" untuk melakukan pembuatan database dan memasukkan informasi login user yang nantinya digunakan pada saat memanage website ini.
+Untuk menggunakannya anda perlu memahami spesifikasi yang dibutuhkan oleh laravel 5.4, seluruh persiapan dapat digunakan berdasarkan dokumentasi yang terdapat pada laravel 5.4 berikut adalah langkah - langkahnya :
+
+- Clone repositori ini atau download langsung dari browser setelah itu diextract.
+- Buka folder yang telah diclone atau diextract melalui cmd.
+- Buka folder "bokep" dengan menggunakan cmd dengan perintah "cd bokep"
+- Pastikan composer telah terinstall dan lakukan perintah "composer update"
+- Pada folder "bokep" rename file ".env.example" menjadi ".env"
+- Buka file ".env" lalu ubah beberapa konfigurasi agar dapat dijalankan.
+- Kembali ke cmd, lakukan perintah "php artisan generate:key"
 
 Informasi user :
 - Username : admin@localhost
