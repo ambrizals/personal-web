@@ -30,7 +30,7 @@
 		    Form pengubahan informasi akun
 		  </div>
 		  <div class="card-body">
-				{!! Form::model($akun,['route' => ['Update Profil'], 'method' => 'PUT']) !!}
+				{!! Form::model($akun,['route' => ['Update Profil'], 'method' => 'PUT', 'files'=> true]) !!}
 				<div class="row">
 					<div class="col-4">
 						<img src="{{ url('/'.$fotoprofil) }}" alt="..." class="rounded-circle">

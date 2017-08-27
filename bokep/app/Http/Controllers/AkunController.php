@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\User;
+Use Image;
+
 
 class AkunController extends Controller
 {
@@ -32,13 +34,23 @@ class AkunController extends Controller
     	echo $akun;
     }
     public function update(Request $request) {
-      $gambar = $request->file('fotoprofil');
-      
+      $akunid = Auth::user()->id;
+      if ($request->hasFile('fotoprofil')) {
+        $fotoprofil = $request->file('fotoprofil');
+        $namafoto = 'profil-'.$akunid.'.'.$fotoprofil->getClientOriginalExtension();
+
+        $destinationPath = ('img/profil');
+        $ubah_foto = Image::make($fotoprofil->getRealPath())->resize(150,150);
+        $ubah_foto->save($destinationPath.'/'.$namafoto,80);
+      }else {
+        $namafoto = Auth::user()->fotoprofil;
+      }
   		Auth::user()->update([
   			'name' => $request->name,
-  			'email' => $request->email,
-  			'biodata' => $request->biodata,
-  		]);
+        'email' => $request->email,
+        'biodata' => $request->biodata,
+        'fotoprofil' => $namafoto
+      ]);
   		return redirect('akun')->with('pesan','Profil berhasil dirubah');
     }
     public function ubahPassword(){
