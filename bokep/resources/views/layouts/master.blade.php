@@ -13,7 +13,7 @@
         <!-- /.navbar-collapse -->
         <!-- Page Heading -->
         <div class="container content">
-            @yield('content')
+            @yield('content')   
         </div>
         <!-- /.row --> 
         {{ Html::script('js/jquery-3.2.1.slim.min.js') }}

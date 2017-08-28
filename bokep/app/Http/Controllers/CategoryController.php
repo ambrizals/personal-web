@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateCategoryRequest;
+use Yajra\Datatables\Datatables;
 use App\CategoryArticle;
 
 class CategoryController extends Controller
@@ -21,7 +22,7 @@ class CategoryController extends Controller
 	public function store(CreateCategoryRequest $request){
 		CategoryArticle::create($request->all());
 		return redirect('category.index')->with('pesan','Category telah dibuat');
-	}
+	}	
 	public function edit($id){
 		$CategoryArticle = CategoryArticle::find($id);
 		return view('category.edit', compact('CategoryArticle'));
@@ -34,5 +35,12 @@ class CategoryController extends Controller
 	public function destory($id){
 		CategoryArticle::where('id',$id)->update(['flag_delete' => 1]);
 		return redirect('category.index')->with('pesan','Category telah diarsip');
+	}
+	public function daftarCategory(){
+		return Datatables::of(CategoryArticle::query())
+							->addColumn('action', function (){
+								return '<a class="btn btn-default" href="#"> Edit</a>';
+							})
+							->make(true);
 	}
 }
