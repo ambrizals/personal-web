@@ -21,7 +21,7 @@ class CategoryController extends Controller
 	}
 	public function store(CreateCategoryRequest $request){
 		CategoryArticle::create($request->all());
-		return redirect('category.index')->with('pesan','Category telah dibuat');
+		return redirect('/panel/article/category')->with('pesan','Category telah dibuat');
 	}	
 	public function edit($id){
 		$CategoryArticle = CategoryArticle::find($id);
@@ -37,10 +37,10 @@ class CategoryController extends Controller
 		return redirect('category.index')->with('pesan','Category telah diarsip');
 	}
 	public function daftarCategory(){
-		return Datatables::of(CategoryArticle::query())
-							->addColumn('action', function (){
-								return '<a class="btn btn-default" href="#"> Edit</a>';
-							})
-							->make(true);
+		$kategori = CategoryArticle::all();
+		return Datatables::of($kategori)
+				->addColumn('action', function ($kategori){
+					return '<a class="btn btn-primary" href="'.url('').'/panel/article/category/'.$kategori->id.'/edit'.'"> Edit</a>';
+				})->make(true);	
 	}
 }
