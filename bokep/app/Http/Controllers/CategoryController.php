@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Http\Requests\CreateCategoryRequest;
+use App\Http\Controllers\Controller;
 use Yajra\Datatables\Datatables;
 use App\CategoryArticle;
+use Request;
 
 class CategoryController extends Controller
 {
@@ -25,22 +27,25 @@ class CategoryController extends Controller
 	}	
 	public function edit($id){
 		$CategoryArticle = CategoryArticle::find($id);
-		return view('category.edit', compact('CategoryArticle'));
+		$halaman = 'Ubah Kategori';
+		return view('category.edit', compact('CategoryArticle','halaman'));
 	}
 	public function update($id) {
 		$CategoryArticle = CategoryArticle::find($id);
 		$CategoryArticle->update(Request::all());
-		return redirect('category.index')->with('pesan','Category telah di ubah');
+		return redirect('/panel/article/category')->with('pesan','Category telah di ubah');
 	}
-	public function destory($id){
+	public function destroy($id){
 		CategoryArticle::where('id',$id)->update(['flag_delete' => 1]);
-		return redirect('category.index')->with('pesan','Category telah diarsip');
+		return redirect('/panel/article/category')->with('pesan','Category telah diarsip');
 	}
 	public function daftarCategory(){
-		$kategori = CategoryArticle::all();
+		$kategori = CategoryArticle::all()->where('flag_delete',0);
 		return Datatables::of($kategori)
 				->addColumn('action', function ($kategori){
-					return '<a class="btn btn-primary" href="'.url('').'/panel/article/category/'.$kategori->id.'/edit'.'"> Edit</a>';
+					return '
+					<a class="btn btn-primary" href="'.url('').'/panel/article/category/'.$kategori->id.'/edit'.'">Atur</a>
+					';
 				})->make(true);	
 	}
 }
