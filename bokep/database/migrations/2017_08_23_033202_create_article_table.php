@@ -14,7 +14,7 @@ class CreateArticleTable extends Migration
     public function up()
     {
         Schema::create('article', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_article');
             $table->integer('akun_id')->unsigned();
             $table->string('judul_article');
             $table->integer('kategori_article')->unsigned();
@@ -23,7 +23,7 @@ class CreateArticleTable extends Migration
             $table->timestamps();
 
             $table->foreign('akun_id')->references('id')->on('users');
-            $table->foreign('kategori_article')->references('id')->on('category_article');
+            $table->foreign('kategori_article')->references('id_category')->on('category_article');
         });
     }
 

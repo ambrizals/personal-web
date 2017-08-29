@@ -14,7 +14,7 @@ class CreateCategoryArticleTable extends Migration
     public function up()
     {
         Schema::create('category_article', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_category');
             $table->string('nama_kategori');
             $table->integer('flag_delete'); 
             $table->timestamps();

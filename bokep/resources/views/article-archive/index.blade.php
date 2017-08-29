@@ -41,7 +41,7 @@ $(function() {
         serverSide: true,
         ajax: '{!! route('Ajax Category Archive') !!}',
         columns: [
-            { data: 'id', name: 'id' },
+            { data: 'id_article', name: 'id' },
             { data: 'nama_kategori', name: 'nama_kategori' }
         ]
     });

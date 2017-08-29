@@ -77,7 +77,7 @@ $(function() {
         serverSide: true,
         ajax: '{!! route('Ajax Load Category') !!}',
         columns: [
-            { data: 'id', name: 'id' },
+            { data: 'id_category', name: 'id' },
             { data: 'nama_kategori', name: 'nama_kategori' },
             { data: 'action', name : 'aksi', searchable : false, orderable : false}
         ]
