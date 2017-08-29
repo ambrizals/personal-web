@@ -31,7 +31,12 @@ Route::group(['prefix'=>'panel'], function() {
 		});
 		Route::resource('posts','ArticleController');
   		Route::resource('category','CategoryController');
-  		Route::get('categoryLoad','CategoryController@daftarCategory')->name('Ajax Load Category');
+		Route::get('categoryLoad','CategoryController@daftarCategory')->name('Ajax Load Category');
+		Route::group(['prefix' => 'archiveAjax'], function() {
+			Route::get('articleLoad','ArchiveArticleController@articleLoad')->name('Ajax Article Archive');
+			Route::get('categoryLoad','ArchiveArticleController@categoryLoad')->name('Ajax Category Archive');
+		});
+		Route::get('archive','ArchiveArticleController@index')->name('Archive Pages');
 	});
 });
 Auth::routes();

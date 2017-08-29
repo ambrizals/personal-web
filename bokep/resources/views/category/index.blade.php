@@ -25,7 +25,7 @@
 						Daftar Kategori
 					</div>
 					<div class="col-md-8 text-right">
-						<a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambah-kategori"">Tambah Kategori</a>
+						<a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambah-kategori">Tambah Kategori</a>
 					</div>
 				</div>
 			</div>

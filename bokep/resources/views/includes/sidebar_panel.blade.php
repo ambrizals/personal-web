@@ -3,7 +3,7 @@
 				<ul>
 					<li><a href="{!! url('/panel/article/posts') !!}" class="text-secondary"> <i class="fa fa-bars"></i> Daftar Artikel</a></li>
 					<li><a href="{!! url('/panel/article/category') !!}" class="text-secondary"><i class="fa fa-bars"></i> Daftar Kategori</a></li>
-					<li><a href="#" class="text-secondary"><i class="fa fa-bars"></i> Daftar Arsip</a></li>
+					<li><a href="{!! url('/panel/article/archive') !!}" class="text-secondary"><i class="fa fa-bars"></i> Daftar Arsip</a></li>
 				</ul>
 			</li>
 			<li class="text-dark"><i class="fa fa-code-fork"></i> Project
