@@ -25,18 +25,18 @@ class CategoryController extends Controller
 		CategoryArticle::create($request->all());
 		return redirect('/panel/article/category')->with('pesan','Category telah dibuat');
 	}	
-	public function edit($id){
+	public function edit($id_category){
 		$CategoryArticle = CategoryArticle::find($id);
 		$halaman = 'Ubah Kategori';
 		return view('category.edit', compact('CategoryArticle','halaman'));
 	}
-	public function update($id) {
+	public function update($id_category) {
 		$CategoryArticle = CategoryArticle::find($id);
 		$CategoryArticle->update(Request::all());
 		return redirect('/panel/article/category')->with('pesan','Category telah di ubah');
 	}
-	public function destroy($id){
-		CategoryArticle::where('id',$id)->update(['flag_delete' => 1]);
+	public function destroy($id_category){
+		CategoryArticle::where('id_category',$id_category)->update(['flag_delete' => 1]);
 		return redirect('/panel/article/category')->with('pesan','Category telah diarsip');
 	}
 	public function daftarCategory(){
@@ -44,7 +44,7 @@ class CategoryController extends Controller
 		return Datatables::of($kategori)
 				->addColumn('action', function ($kategori){
 					return '
-					<a class="btn btn-primary" href="'.url('').'/panel/article/category/'.$kategori->id.'/edit'.'">Atur</a>
+					<a class="btn btn-primary" href="'.url('').'/panel/article/category/'.$kategori->id_category.'/edit'.'">Atur</a>
 					';
 				})->make(true);	
 	}

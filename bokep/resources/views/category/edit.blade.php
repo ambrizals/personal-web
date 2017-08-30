@@ -11,7 +11,7 @@
 				Ubah Kategori
 			</div>
 			<div class="card-body">
-				{!! Form::model($CategoryArticle,['route' => ['category.update', $CategoryArticle->id], 'method' => 'PUT']) !!}
+				{!! Form::model($CategoryArticle,['route' => ['category.update', $CategoryArticle->id_category], 'method' => 'PUT']) !!}
 				<div class="form-group">
 					{!! Form::label('nama_kategori','Nama Kategori') !!}
 					{!! Form::text('nama_kategori', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nama kategori']) !!}
@@ -26,7 +26,7 @@
 			</div>
 			<div class="card-body">
 				<p>Kategori yang dihapus tidak dapat terhapus secara langsung dan akan diarsipkan pada halaman arsip.</p>
-				{!! Form::open(['url' => 'panel/article/category/'.$CategoryArticle->id]) !!}
+				{!! Form::open(['url' => 'panel/article/category/'.$CategoryArticle->id_category]) !!}
 				{!! Form::hidden('_method', 'DELETE') !!}
 				{!! Form::submit('Hapus Kategori', ['class' => 'btn btn-warning btn-block']) !!}
 				{!! Form::close() !!}
