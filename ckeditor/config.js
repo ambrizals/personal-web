@@ -25,6 +25,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'colors' },
 		{ name: 'about' }
 	];
+	config.autoGrow_onStartup = true;
 
 	// Remove some buttons provided by the standard plugins, which are
 	// not needed in the Standard(s) toolbar.
@@ -35,4 +36,12 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
+	config.height = 400;
+	// Upload Images
+	var path = CKEDITOR.basePath.split('/');
+	path[ path.length-2 ] = 'upload_image';
+	config.filebrowserUploadUrl = path.join('/').replace(/\/+$/, '');
+
+	// Add plugin
+	config.extraPlugins = 'filebrowser';
 };

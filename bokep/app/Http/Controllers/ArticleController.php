@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Yajra\Datatables\Datatables;
 use App\Article;
+use App\CategoryArticle;
 
 class ArticleController extends Controller
 {
@@ -17,10 +18,12 @@ class ArticleController extends Controller
 		return view('article.index', compact('halaman'));
 	}
 	public function create(){
-		return 'Wkwkwk land';
+		$category = CategoryArticle::pluck('nama_kategori','id_category')->where('flag_delete', 0);
+		$halaman = 'Buat Artikel';
+		return view('article.create', compact('halaman','category') );
 	}
 	public function store(){
-
+		return 'Belum selesai fungsi createnya bang';
 	}
 	public function edit($id){
 		return 'Wkwkwk Land';

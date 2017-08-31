@@ -30,7 +30,7 @@ Route::group(['prefix'=>'panel'], function() {
 			return redirect('panel/article/posts');
 		});
 		Route::resource('posts','ArticleController');
-  		Route::resource('category','CategoryController');
+  	Route::resource('category','CategoryController');
 		Route::get('categoryLoad','CategoryController@daftarCategory')->name('Ajax Load Category');
 		Route::get('articleLoad','ArticleController@daftarArticle')->name('Ajax Load Article');
 		Route::group(['prefix' => 'archiveAjax'], function() {
@@ -43,3 +43,4 @@ Route::group(['prefix'=>'panel'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/upload_image', 'ImagesUploadController@CKEditor');

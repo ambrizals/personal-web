@@ -13,7 +13,7 @@
 						Daftar Artikel
 					</div>
 					<div class="col-md-8 text-right">
-						<a href="#" class="btn btn-sm btn-primary">Buat Artikel</a>
+						<a href="{!! Route('posts.create')!!}" class="btn btn-sm btn-primary">Buat Artikel</a>
 						<a href="#" class="btn btn-sm btn-primary">Backup Artikel</a>
 					</div>
 				</div>
