@@ -6,6 +6,15 @@
 		@include('includes.sidebar_panel')
 	</div>
 	<div class="col-md-9 content-page">
+		@if ($errors->any())
+		<div class="alert alert-danger">
+				<ul>
+						@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+						@endforeach
+				</ul>
+		</div>
+		@endif
 		{!! Form::open(['route' => 'posts.store', 'method' => 'POST', 'class' => 'form-control', 'files' => 'true']) !!}
 		<div class="form-group">
 			{!! Form::label('judul_article', 'Judul Artikel') !!}
@@ -18,6 +27,10 @@
 		<div class="form-group">
 			{!! Form::label('konten_article', 'Konten') !!}
 			{!! Form::textarea('konten_article', null, ['class' => 'form-control']) !!}
+		</div>
+		<div class="form-group">
+			{!! Form::label('thumbnail_article','Thumbnail Artikel') !!}
+			{!! Form::file('thumbnail_article',['class' => 'form-control']) !!}
 		</div>
 		{!! Form::submit('Buat Artikel', ['class' => 'btn btn-primary btn-block']) !!}
 		{!! Form::close() !!}

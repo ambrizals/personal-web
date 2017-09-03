@@ -24,14 +24,14 @@ class CategoryController extends Controller
 	public function store(CreateCategoryRequest $request){
 		CategoryArticle::create($request->all());
 		return redirect('/panel/article/category')->with('pesan','Category telah dibuat');
-	}	
+	}
 	public function edit($id_category){
-		$CategoryArticle = CategoryArticle::find($id);
+		$CategoryArticle = CategoryArticle::find($id_category);
 		$halaman = 'Ubah Kategori';
 		return view('category.edit', compact('CategoryArticle','halaman'));
 	}
 	public function update($id_category) {
-		$CategoryArticle = CategoryArticle::find($id);
+		$CategoryArticle = CategoryArticle::find($id_category);
 		$CategoryArticle->update(Request::all());
 		return redirect('/panel/article/category')->with('pesan','Category telah di ubah');
 	}
@@ -46,6 +46,6 @@ class CategoryController extends Controller
 					return '
 					<a class="btn btn-primary" href="'.url('').'/panel/article/category/'.$kategori->id_category.'/edit'.'">Atur</a>
 					';
-				})->make(true);	
+				})->make(true);
 	}
 }

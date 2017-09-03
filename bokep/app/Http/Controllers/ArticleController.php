@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateArticleRequests;
+use Illuminate\Support\Facades\Auth;
 use Yajra\Datatables\Datatables;
 use App\Article;
 use App\CategoryArticle;
+Use Image;
 
 class ArticleController extends Controller
 {
@@ -22,7 +25,30 @@ class ArticleController extends Controller
 		$halaman = 'Buat Artikel';
 		return view('article.create', compact('halaman','category') );
 	}
-	public function store(){
+	public function store(CreateArticleRequests $request){
+		//Cuman nyoba ini
+		$article = new Article;
+		$article->akun_id = Auth::id();
+		$article->judul_article = $request->get('judul_article');
+		$article->kategori_article = $request->get('kategori_article');
+		$article->konten_article = $request->get('konten_article');
+
+		//fungsi namafoto
+		if ($request->hasFile('thumbnail_article')) {
+			$gambar = $request->file('thumbnail_article');
+			$namafoto = 'article-'.time().'.'.$gambar->getClientOriginalExtension();
+			//Cover gambar
+			$destinationPath = ('img/article');
+			$uploadCover = Image::make($gambar->getRealPath());
+			$uploadCover->save($destinationPath.'/'.$namafoto,80);
+			//Thumbnail di daftar artikel
+			$destinationThumbnail = ('img/thumbnail');
+			$uploadThumbnail = Image::make($gambar->getRealPath())->resize(300,300);
+			$uploadThumbnail->save($destinationThumbnail.'/'.$namafoto,80);
+		}
+		//stop disini
+		$article->thumbnail_article = $namafoto;
+		// $article->save();
 		return 'Belum selesai fungsi createnya bang';
 	}
 	public function edit($id){
