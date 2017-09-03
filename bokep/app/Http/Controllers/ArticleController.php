@@ -48,8 +48,9 @@ class ArticleController extends Controller
 		}
 		//stop disini
 		$article->thumbnail_article = $namafoto;
-		// $article->save();
-		return 'Belum selesai fungsi createnya bang';
+		$article->save();
+
+		return redirect('/panel/article/posts')->with('pesan','Artikel telah dipublikasikan');
 	}
 	public function edit($id){
 		return 'Wkwkwk Land';
