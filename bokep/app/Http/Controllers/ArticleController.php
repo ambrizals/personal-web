@@ -21,7 +21,7 @@ class ArticleController extends Controller
 		return view('article.index', compact('halaman'));
 	}
 	public function create(){
-		$category = CategoryArticle::pluck('nama_kategori','id_category')->where('flag_delete', 0);
+		$category = CategoryArticle::where('flag_delete',0)->pluck('nama_kategori','id_category');
 		$halaman = 'Buat Artikel';
 		return view('article.create', compact('halaman','category') );
 	}
@@ -67,6 +67,9 @@ class ArticleController extends Controller
 											->join('users','article.akun_id','=','users.id')->get();
 		return Datatables::of($posts)
 						->editColumn('judul_article', '{!! str_limit($judul_article, 60) !!}')
+						->addColumn('aksi', function($posts){
+							return view('ajax.article_comp', compact('posts'));
+						})
 						->make(true);
 	}
 }

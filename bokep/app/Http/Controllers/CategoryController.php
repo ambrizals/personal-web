@@ -43,9 +43,7 @@ class CategoryController extends Controller
 		$kategori = CategoryArticle::all()->where('flag_delete',0);
 		return Datatables::of($kategori)
 				->addColumn('action', function ($kategori){
-					return '
-					<a class="btn btn-primary" href="'.url('').'/panel/article/category/'.$kategori->id_category.'/edit'.'">Atur</a>
-					';
+					return view('ajax.category_comp', compact('kategori'));
 				})->make(true);
 	}
 }

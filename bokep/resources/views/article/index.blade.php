@@ -14,7 +14,6 @@
 					</div>
 					<div class="col-md-8 text-right">
 						<a href="{!! Route('posts.create')!!}" class="btn btn-sm btn-primary">Buat Artikel</a>
-						<a href="#" class="btn btn-sm btn-primary">Backup Artikel</a>
 					</div>
 				</div>
 			</div>
@@ -26,7 +25,7 @@
 							<th>Kategori Artikel</th>
 							<th>Ditulis</th>
 							<th>Tanggal terbit</th>
-							<th>Tanggal Update</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 				</table>
@@ -44,11 +43,11 @@ $(function() {
         serverSide: true,
         ajax: '{!! route('Ajax Load Article') !!}',
         columns: [
-            { data: 'judul_article', name: 'Judul Artikel' },
-            { data: 'nama_kategori', name: 'nama_kategori' },
-			{ data: 'name', name : 'Ditulis'},
-			{ data: 'created_at', name: 'Tanggal terbit'},
-			{ data: 'updated_at', name: 'Tanggal update'}
+            { data: 'judul_article'},
+            { data: 'nama_kategori', searchable : false},
+			{ data: 'name', searchable : false},
+			{ data: 'created_at', searchable : false},
+			{ data: 'aksi', orderable : false, searchable : false},
         ]
     });
 });
