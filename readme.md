@@ -1,4 +1,4 @@
-# My Personal Web (0.1)
+# My Personal Web (0.3)
 
 Aplikasi web ini dibuat menggunakan laravel dengan tujuan untuk membuat sebuah website pribadi, dimana website tersebut memiliki fitur seperti :
 - Blog
