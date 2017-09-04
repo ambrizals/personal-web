@@ -23,9 +23,11 @@ Berikut adalah packages addons yang terpasang :
 - DataTables Yajrabox
 
 
-Informasi user :
+## Informasi user :
 - Username : admin@localhost
 - Password : admin1234
+
+*Informasi user dapat dilihat pada direktori apps/database/seeds/UserTableSeeder.php
 
 ## Versi 0.3
 Pembaruan pada panel artikel dan kategori
