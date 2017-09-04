@@ -20,18 +20,22 @@ Informasi user :
 - Username : admin@localhost
 - Password : admin1234
 
-## Versi 0.1
-
-Versi 0.1 merupakan versi awal dalam pembuatan akun, dimana nantinya pemilik harus melakukan login saat memanage websitenya sendiri.
-
-## Versi 0.1.3
-Pembaruan pada modul profil
-- Update foto profil
+## Versi 0.3
+Pembaruan pada panel artikel dan kategori
 
 ## Versi 0.2
 Pembaruan pada modul profil
 - Adding captcha in change password
 - Fix cannot update password in database
+
+## Versi 0.1.3
+Pembaruan pada modul profil
+- Update foto profil
+
+
+## Versi 0.1
+
+Versi 0.1 merupakan versi awal dalam pembuatan akun, dimana nantinya pemilik harus melakukan login saat memanage websitenya sendiri.
 
 # Laravel
 
