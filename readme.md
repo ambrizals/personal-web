@@ -10,11 +10,18 @@ Untuk menggunakannya anda perlu memahami spesifikasi yang dibutuhkan oleh larave
 
 - Clone repositori ini atau download langsung dari browser setelah itu diextract.
 - Buka folder yang telah diclone atau diextract melalui cmd.
-- Buka folder "bokep" dengan menggunakan cmd dengan perintah "cd bokep"
+- Buka folder "bokep" dengan menggunakan cmd dengan perintah "cd apps"
 - Pastikan composer telah terinstall dan lakukan perintah "composer update"
 - Pada folder "bokep" rename file ".env.example" menjadi ".env"
 - Buka file ".env" lalu ubah beberapa konfigurasi agar dapat dijalankan.
-- Kembali ke cmd, lakukan perintah "php artisan generate:key"
+- Kembali ke cmd, lakukan perintah "php artisan key:generate"
+
+## Installed Packages
+Berikut adalah packages addons yang terpasang :
+- HTML & Forms (Laravel Collective)
+- BotCaptcha (Captcha-com)
+- DataTables Yajrabox
+
 
 Informasi user :
 - Username : admin@localhost
@@ -31,7 +38,6 @@ Pembaruan pada modul profil
 ## Versi 0.1.3
 Pembaruan pada modul profil
 - Update foto profil
-
 
 ## Versi 0.1
 
