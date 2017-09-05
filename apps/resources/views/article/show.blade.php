@@ -1,13 +1,16 @@
+@foreach ($article as $item)
 @extends('layouts.master')
-@section('title', $halaman)
+@php
+	$judul = $item->judul_article
+@endphp
+@section('title', $halaman. ' : ' .$judul)
 @section('content')
 <div class="row">
-	<div class="col-md-8">
-    @foreach ($article as $item)
-      <h2>{!! $item->judul_article !!}</h2>
-      {!! $item->konten_article !!}
-      {!! $item->CategoryArticle->nama_kategori !!}
-    @endforeach
+	<div class="col-md-8 blog-page">
+    	<h2>{!! $item->judul_article !!}</h2>
+		<p>Ditulis oleh : {!! $item->User->name !!} | Diterbitkan : {!! $item->created_at !!} | Kategori : {!! $item->CategoryArticle->nama_kategori !!}</p>
+    	{!! $item->konten_article !!}
+    	
 	</div>
 	<div class="col-md-4">
 		<a class="twitter-timeline" data-height="500" data-theme="dark" href="https://twitter.com/ambrizals">Tweets by ambrizals</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -23,4 +26,5 @@
 		</div>
 	</div>
 </div>
+@endforeach
 @stop

@@ -10,10 +10,10 @@ class Article extends Model
     protected $table = 'article';
     protected $fillable = ['akun_id','judul_article','slug_article','kategori_article','konten_article','thumbnail_article'];
 
-    public function Article(){
-      return $this->belongsTo('App\CategoryArticle');
+    public function CategoryArticle(){
+      return $this->belongsTo('App\CategoryArticle','kategori_article','id_category');
     }
     public function User(){
-      return $this->belongsTo('App\User');
+      return $this->belongsTo('App\User','akun_id','id');
     }
 }

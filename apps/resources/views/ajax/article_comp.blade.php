@@ -1,1 +1,1 @@
-<a href="{{ route('posts.edit', $posts->id_article) }}" class="btn btn-sm btn-primary">Atur</a> <a href="#" class="btn btn-sm btn-primary">Lihat Artikel</a>
+<a href="{{ route('posts.edit', $posts->id_article) }}" class="btn btn-sm btn-primary">Atur</a> <a href="{{ route('articles.show', $posts->slug_article) }}" class="btn btn-sm btn-primary">Lihat Artikel</a>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateArticleRequests;
 use Illuminate\Support\Facades\Auth;
 use Yajra\Datatables\Datatables;
+use Illuminate\Support\Str;
 use App\Article;
 use App\CategoryArticle;
 Use Image;
@@ -97,7 +98,7 @@ class ArticleController extends Controller
 		return redirect()->route('posts.index')->with('pesan','Category telah diarsip');
 	}
 	public function daftarArticle(){
-		$posts = Article::select(['article.id_article','category_article.nama_kategori','article.judul_article','users.name','article.thumbnail_article','article.created_at','article.updated_at'])
+		$posts = Article::select(['article.id_article','category_article.nama_kategori','article.judul_article','article.slug_article','users.name','article.thumbnail_article','article.created_at','article.updated_at'])
 											->join('category_article', 'article.kategori_article', '=', 'category_article.id_category')
 											->join('users','article.akun_id','=','users.id')
 											->where('article.flag_delete',0)
@@ -110,8 +111,8 @@ class ArticleController extends Controller
 						->make(true);
 	}
 	public function viewArticle($slug_article){
-		$article = Article::where('slug_article', $slug_article)->first()->with('Article.CategoryArticle')->get();
-		$halaman = 'blog';
+		$article = Article::where('slug_article', '=' , $slug_article)->latest('created_at')->with('CategoryArticle')->with('User')->get();
+		$halaman = 'Blog';
 		return view('article.show', compact('article','halaman'));
 	}
 }

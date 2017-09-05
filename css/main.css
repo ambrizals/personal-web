@@ -69,3 +69,7 @@ footer{
 	border-bottom:1px solid #e9ecef!important;
 	padding:1em;
 }
+.blog-page img{
+	max-width:100% !important;
+	height:auto !important;
+}
