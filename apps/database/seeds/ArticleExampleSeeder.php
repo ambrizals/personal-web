@@ -20,6 +20,7 @@ class ArticleExampleSeeder extends Seeder
           'id_article' => '1',
           'akun_id' => '1',
           'judul_article' => 'Hello World !',
+          'slug_article' => 'hello-world',
           'kategori_article' => '1',
           'konten_article' => '<p>Hello World, ini postingan pertama kamu.</p>',
           'thumbnail_article' => 'default_cover.jpg',

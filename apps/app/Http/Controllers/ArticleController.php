@@ -30,6 +30,7 @@ class ArticleController extends Controller
 		$article = new Article;
 		$article->akun_id = Auth::id();
 		$article->judul_article = $request->get('judul_article');
+		$article->slug_article = Str::slug($request->get('judul_article'));
 		$article->kategori_article = $request->get('kategori_article');
 		$article->konten_article = $request->get('konten_article');
 
@@ -107,5 +108,10 @@ class ArticleController extends Controller
 							return view('ajax.article_comp', compact('posts'));
 						})
 						->make(true);
+	}
+	public function viewArticle($slug_article){
+		$article = Article::where('slug_article', $slug_article)->first()->with('Article.CategoryArticle')->get();
+		$halaman = 'blog';
+		return view('article.show', compact('article','halaman'));
 	}
 }

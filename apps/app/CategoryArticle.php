@@ -10,7 +10,7 @@ class CategoryArticle extends Model
     protected $table = 'category_article';
     protected $fillable = ['nama_kategori'];
 
-    public function Article(){
-        return $this->belongsToMany('Article', 'kategori_article','id_category','id_article');
+    public function CategoryArticle(){
+        return $this->hasMany('App\Article');
     }
 }

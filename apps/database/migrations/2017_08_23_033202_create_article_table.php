@@ -17,6 +17,7 @@ class CreateArticleTable extends Migration
             $table->increments('id_article');
             $table->integer('akun_id')->unsigned();
             $table->string('judul_article');
+            $table->string('slug_article');
             $table->integer('kategori_article')->unsigned();
             $table->text('konten_article');
             $table->string('thumbnail_article');
