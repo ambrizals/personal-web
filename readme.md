@@ -27,7 +27,10 @@ Berikut adalah packages addons yang terpasang :
 - Username : admin@localhost
 - Password : admin1234
 
-*Informasi user dapat dilihat pada direktori apps/database/seeds/UserTableSeeder.php
+*Informasi user dapat dilihat pada direktori apps/database/seeds/UserTableSeeder.php*
+
+## Versi 0.3.1
+Pembaruan dan penyelesaian pada panel artikel.
 
 ## Versi 0.3
 Pembaruan pada panel artikel dan kategori

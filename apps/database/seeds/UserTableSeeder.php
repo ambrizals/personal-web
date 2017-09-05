@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt('admin1234'),
             'group' => '2',
             'biodata' => 'Mau tau lu ?',
-            
+
         ]);
     }
 }

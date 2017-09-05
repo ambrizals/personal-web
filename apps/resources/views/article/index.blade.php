@@ -6,6 +6,11 @@
 		@include('includes.sidebar_panel')
 	</div>
 	<div class="col-md-9 content-page">
+		@If (Session::has('pesan'))
+		<div class="alert alert-success">
+			{{ Session::get('pesan') }}
+		</div>
+		@Endif
 		<div class="card">
 			<div class="card-header">
 				<div class="row">
@@ -43,7 +48,7 @@ $(function() {
         serverSide: true,
         ajax: '{!! route('Ajax Load Article') !!}',
         columns: [
-            { data: 'judul_article'},
+            { data: 'judul_article', orderable: false},
             { data: 'nama_kategori', searchable : false},
 			{ data: 'name', searchable : false},
 			{ data: 'created_at', searchable : false},

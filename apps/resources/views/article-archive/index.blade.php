@@ -12,21 +12,29 @@
         </nav>
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-category" role="tabpanel" aria-labelledby="nav-category-tab">
-				<div class="tab-window">
-                    <table class="table" id="daftarCategory">
-                        <thead>
-                            <tr>
-                                <th>ID Kategori</th>
-                                <th>Nama Kategori</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
+              <div class="tab-window">
+                  <table class="table" id="daftarCategory">
+                      <thead>
+                          <tr>
+                              <th>ID Kategori</th>
+                              <th>Nama Kategori</th>
+                          </tr>
+                      </thead>
+                  </table>
+              </div>
             </div>
             <div class="tab-pane fade" id="nav-article" role="tabpanel" aria-labelledby="nav-article-tab">
-            
-            ...
-            
+              <div class="tab-window">
+                  <table class="table" id="daftarArticle">
+                      <thead>
+                          <tr>
+                              <th>Judul Artikel</th>
+                              <th>Nama Kategori</th>
+                              <th>Penulis</th>
+                          </tr>
+                      </thead>
+                  </table>
+              </div>
             </div>
         </div>
     </div>
@@ -43,6 +51,18 @@ $(function() {
         columns: [
             { data: 'id_category', name: 'id_category' },
             { data: 'nama_kategori', name: 'nama_kategori' }
+        ]
+    });
+});
+$(function() {
+    $('#daftarArticle').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: '{!! route('Ajax Article Archive') !!}',
+        columns: [
+            { data: 'judul_article' },
+            { data: 'nama_kategori', searchable : false},
+            { data: 'name', searchable: false, orderable:false}
         ]
     });
 });

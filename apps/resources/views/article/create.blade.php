@@ -22,7 +22,7 @@
 		</div>
 		<div class="form-group">
 			{!! Form::label('kategori_article', 'Kategori Artikel') !!}
-			{!! Form::select('kategori_article', $category , 'null', ['class' => 'form-control']) !!}
+			{!! Form::select('kategori_article', $category , null, ['class' => 'form-control', 'placeholder' => 'Pilih kategori !']) !!}
 		</div>
 		<div class="form-group">
 			{!! Form::label('konten_article', 'Konten') !!}
