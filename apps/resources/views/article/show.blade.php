@@ -7,9 +7,12 @@
 @section('content')
 <div class="row">
 	<div class="col-md-8 blog-page">
-    	<h2>{!! $item->judul_article !!}</h2>
-		<p>Ditulis oleh : {!! $item->User->name !!} | Diterbitkan : {!! $item->created_at !!} | Kategori : {!! $item->CategoryArticle->nama_kategori !!}</p>
-    	{!! $item->konten_article !!}
+		<div class="blog-header">
+			<h2>{!! $item->judul_article !!}</h2>
+			<p>Ditulis oleh : {!! $item->User->name !!} | Diterbitkan : {!! $item->created_at !!} | Kategori : {!! $item->CategoryArticle->nama_kategori !!}</p>
+			<img src="{!! url('/').'/img/article/'.$item->thumbnail_article !!}"/>
+		</div>
+		{!! $item->konten_article !!}
     	
 	</div>
 	<div class="col-md-4">

@@ -110,9 +110,4 @@ class ArticleController extends Controller
 						})
 						->make(true);
 	}
-	public function viewArticle($slug_article){
-		$article = Article::where('slug_article', '=' , $slug_article)->latest('created_at')->with('CategoryArticle')->with('User')->get();
-		$halaman = 'Blog';
-		return view('article.show', compact('article','halaman'));
-	}
 }
