@@ -53,7 +53,7 @@
           <a class="nav-link" href="#"><i class="fa fa-code" aria-hidden="true"></i> Project</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Article</a>
+          <a class="nav-link" href="{{ route('articles.index') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Article</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ URL('about') }}"><i class="fa fa-user-circle" aria-hidden="true"></i> About</a>

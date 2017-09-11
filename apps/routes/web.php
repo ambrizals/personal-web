@@ -43,6 +43,7 @@ Route::group(['prefix'=>'panel'], function() {
 Auth::routes();
 Route::group(['prefix' => 'blog'], function() {
 	Route::get('read/{slug}','ViewController@article')->name('articles.show');
+	Route::get('/','ViewController@articleIndex')->name('articles.index');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/upload_image', 'ImagesUploadController@CKEditor');

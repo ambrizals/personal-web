@@ -18,4 +18,9 @@ class ViewController extends Controller
 			return view ('errors.article_deleted');
 		}
     }
+    public function articleIndex(){
+		$article = Article::where('flag_delete',0)->latest('created_at')->with('CategoryArticle')->with('User')->paginate(10);
+		$halaman = 'Blog';
+		return view('article.index_blog', compact('article','halaman'));
+    }
 }

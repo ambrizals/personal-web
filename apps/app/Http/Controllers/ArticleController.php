@@ -27,15 +27,13 @@ class ArticleController extends Controller
 		return view('article.create', compact('halaman','category') );
 	}
 	public function store(CreateArticleRequests $request){
-		//Cuman nyoba ini
+		// Prepare Statement
 		$article = new Article;
 		$article->akun_id = Auth::id();
 		$article->judul_article = $request->get('judul_article');
 		$article->slug_article = Str::slug($request->get('judul_article'));
 		$article->kategori_article = $request->get('kategori_article');
 		$article->konten_article = $request->get('konten_article');
-
-		//fungsi namafoto
 		if ($request->hasFile('thumbnail_article')) {
 			$gambar = $request->file('thumbnail_article');
 			$namafoto = 'article-'.time().'.'.$gambar->getClientOriginalExtension();
@@ -48,12 +46,21 @@ class ArticleController extends Controller
 			$uploadThumbnail = Image::make($gambar->getRealPath())->resize(300,300);
 			$uploadThumbnail->save($destinationThumbnail.'/'.$namafoto,80);
 		} else {
-			$namafoto = 'default_cover.jpg';			//File foto belum tersedia
+			$namafoto = 'default_cover.jpg';
 		}
-		//stop disini
 		$article->thumbnail_article = $namafoto;
-		$article->save();
-
+		// Check duplicate slug
+		$posts = Article::where('slug_article',$article->slug_article)->where('flag_delete',0)->get();
+		echo $posts->count();
+		if ($posts->count() > 0) {
+			$article->judul_article = $request->get('judul_article').' ('.$posts->count().')';
+			$article->slug_article = Str::slug($request->get('judul_article')).'-'.$posts->count();
+			echo $article->judul_article;
+			echo $article->slug_article;
+			$article->save();
+		} else {
+			$article->save();
+		}
 		return redirect()->route('posts.index')->with('pesan','Artikel telah dipublikasikan');
 	}
 	public function edit($id_article){
