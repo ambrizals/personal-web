@@ -109,6 +109,7 @@ class ArticleController extends Controller
 											->join('category_article', 'article.kategori_article', '=', 'category_article.id_category')
 											->join('users','article.akun_id','=','users.id')
 											->where('article.flag_delete',0)
+											->latest('created_at')
 											->get();
 		return Datatables::of($posts)
 						->editColumn('judul_article', '{!! str_limit($judul_article, 60) !!}')

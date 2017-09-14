@@ -40,7 +40,7 @@ class CategoryController extends Controller
 		return redirect('/panel/article/category')->with('pesan','Category telah diarsip');
 	}
 	public function daftarCategory(){
-		$kategori = CategoryArticle::all()->where('flag_delete',0);
+		$kategori = CategoryArticle::where('flag_delete',0)->latest('created_at')->get();
 		return Datatables::of($kategori)
 				->addColumn('action', function ($kategori){
 					return view('ajax.category_comp', compact('kategori'));
