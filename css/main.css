@@ -78,3 +78,7 @@ footer{
 	max-width:100% !important;
 	height:auto !important;
 }
+.article-box{
+	display: inline-block;
+	margin: 15px 0;
+}
