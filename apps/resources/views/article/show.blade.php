@@ -5,11 +5,32 @@
 	<div class="col-md-8 blog-page">
 		<div class="blog-header">
 			<h2>{!! $article->judul_article !!}</h2>
-			<p>Ditulis oleh : {!! $article->User->name !!} | Diterbitkan : {!! $article->created_at !!} | Kategori : {!! $article->CategoryArticle->nama_kategori !!}</p>
-			<img src="{!! url('/').'/img/article/'.$article->thumbnail_article !!}"/>
+			<p>Ditulis oleh : {!! $article->User->name !!} | Diterbitkan : {!! $article->created_at !!} | Kategori : {!! $article->CategoryArticle->nama_kategori !!} | Komentar : <a href="{{ route('articles.show', $article->slug_article.'#disqus_thread') }}"></a></p>
+			<img src="{!! url('/').'/img/article/'.$article->cover_article !!}"/>
 		</div>
 		{!! $article->konten_article !!}
-    	
+    	<div class="comment-box">
+			<div id="disqus_thread"></div>
+			<script>
+
+			/**
+			*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+			*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+			/*
+			var disqus_config = function () {
+			this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+			this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			};
+			*/
+			(function() { // DON'T EDIT BELOW THIS LINE
+			var d = document, s = d.createElement('script');
+			s.src = 'https://ambrizalofficialsblog.disqus.com/embed.js';
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+			})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>		
+		</div>
 	</div>
 	<div class="col-md-4">
 		<a class="twitter-timeline" data-height="500" data-theme="dark" href="https://twitter.com/ambrizals">Tweets by ambrizals</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>

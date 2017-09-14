@@ -23,6 +23,7 @@ class ArticleExampleSeeder extends Seeder
           'slug_article' => 'hello-world',
           'kategori_article' => '1',
           'konten_article' => '<p>Hello World, ini postingan pertama kamu.</p>',
+          'cover_article' => 'default_cover.jpg',
           'thumbnail_article' => 'default_cover.jpg',
           'flag_delete' => '0',
         ]);

@@ -34,21 +34,29 @@ class ArticleController extends Controller
 		$article->slug_article = Str::slug($request->get('judul_article'));
 		$article->kategori_article = $request->get('kategori_article');
 		$article->konten_article = $request->get('konten_article');
-		if ($request->hasFile('thumbnail_article')) {
-			$gambar = $request->file('thumbnail_article');
+		if ($request->hasFile('cover_article')) {
+			$gambar = $request->file('cover_article');
 			$namafoto = 'article-'.time().'.'.$gambar->getClientOriginalExtension();
 			//Cover gambar
 			$destinationPath = ('img/article');
 			$uploadCover = Image::make($gambar->getRealPath());
 			$uploadCover->save($destinationPath.'/'.$namafoto,80);
-			//Thumbnail di daftar artikel
-			$destinationThumbnail = ('img/thumbnail');
-			$uploadThumbnail = Image::make($gambar->getRealPath())->resize(300,300);
-			$uploadThumbnail->save($destinationThumbnail.'/'.$namafoto,80);
+			$article->cover_article = $namafoto;
 		} else {
-			$namafoto = 'default_cover.jpg';
+			$article->cover_article = 'default_cover.jpg';
 		}
-		$article->thumbnail_article = $namafoto;
+		//Thumbnail di daftar artikel
+		if ($request->hasFile('thumbnail_article')){
+			$gambar = $request->file('thumbnail_article');
+			$namafoto = 'article-'.time().'.'.$gambar->getClientOriginalExtension();
+			$destinationThumbnail = ('img/thumbnail');
+			$uploadThumbnail = Image::make($gambar->getRealPath());
+			$uploadThumbnail->save($destinationThumbnail.'/'.$namafoto,80);
+			$article->thumbnail_article = $namafoto;
+		} else {
+			$article->thumbnail_article = 'default_cover.jpg';
+		}
+		
 		// Check duplicate slug
 		$posts = Article::where('slug_article',$article->slug_article)->where('flag_delete',0)->get();
 		echo $posts->count();
@@ -76,8 +84,8 @@ class ArticleController extends Controller
 		$posts->kategori_article = $request->get('kategori_article');
 		$posts->konten_article = $request->get('konten_article');
 		//fungsi namafoto
-		if ($request->hasFile('thumbnail_article')) {
-			$gambar = $request->file('thumbnail_article');
+		if ($request->hasFile('cover_article')) {
+			$gambar = $request->file('cover_article');
 			$namafoto = 'article-'.time().'.'.$gambar->getClientOriginalExtension();
 			//Cover gambar
 			$destinationPath = ('img/article');
@@ -88,15 +96,15 @@ class ArticleController extends Controller
 			$uploadThumbnail = Image::make($gambar->getRealPath())->resize(300,300);
 			$uploadThumbnail->save($destinationThumbnail.'/'.$namafoto,80);
 		} else {
-			$namafoto = $article->thumbnail_article;			//File foto belum tersedia
+			$namafoto = $article->cover_article;			//File foto belum tersedia
 		}
-		$posts->thumbnail_article = $namafoto;
+		$posts->cover_article = $namafoto;
 		Article::where('id_article', $article->id_article)
 						->update([
 							'judul_article' => $posts->judul_article,
 							'kategori_article' => $posts->kategori_article,
 							'konten_article' => $posts->konten_article,
-							'thumbnail_article' => $posts->thumbnail_article,
+							'cover_article' => $posts->cover_article,
 		]);
 		return redirect()->route('posts.index')->with('pesan','Artikel telah diupdate !');
 	}
@@ -105,7 +113,7 @@ class ArticleController extends Controller
 		return redirect()->route('posts.index')->with('pesan','Category telah diarsip');
 	}
 	public function daftarArticle(){
-		$posts = Article::select(['article.id_article','category_article.nama_kategori','article.judul_article','article.slug_article','users.name','article.thumbnail_article','article.created_at','article.updated_at'])
+		$posts = Article::select(['article.id_article','category_article.nama_kategori','article.judul_article','article.slug_article','users.name','article.cover_article','article.created_at','article.updated_at'])
 											->join('category_article', 'article.kategori_article', '=', 'category_article.id_category')
 											->join('users','article.akun_id','=','users.id')
 											->where('article.flag_delete',0)

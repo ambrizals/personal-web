@@ -16,6 +16,7 @@
             @yield('content')   
         </div>
         <!-- /.row --> 
+        <script id="dsq-count-scr" src="//ambrizalofficialsblog.disqus.com/count.js" async></script>
         {{ Html::script('js/jquery-3.2.1.slim.min.js') }}
         {{ Html::script('js/popper.min.js') }}
         {{ Html::script('js/bootstrap.min.js') }}

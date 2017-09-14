@@ -20,6 +20,7 @@ class CreateArticleTable extends Migration
             $table->string('slug_article');
             $table->integer('kategori_article')->unsigned();
             $table->text('konten_article');
+            $table->string('cover_article');
             $table->string('thumbnail_article');
             $table->integer('flag_delete');
             $table->timestamps();

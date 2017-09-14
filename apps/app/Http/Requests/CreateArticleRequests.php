@@ -27,7 +27,8 @@ class CreateArticleRequests extends FormRequest
             'judul_article' => 'required',
             'kategori_article' => 'required',
             'konten_article' => 'required',
-            'thumbnail_article' => 'mimes:jpeg,jpg,png|image'
+            'cover_article' => 'mimes:jpeg,jpg,png|image',
+            'thumbnail_article' => 'mimes:jpeg,jpg,png|image|dimensions:width=300,height=300',
         ];
     }
     public function messages(){
@@ -35,8 +36,11 @@ class CreateArticleRequests extends FormRequest
         'judul_article.required' => 'Judul article tidak boleh kosong !',
         'kategori_article.required' => 'Kategori tidak boleh kosong !',
         'konten_article.required' => 'Konten tidak boleh kosong !',
-        'thumbnail_article.image' => 'Hanya menerima file gambar !',
+        'cover_article.image' => 'Hanya menerima file gambar !',
+        'cover_article.mimes' => 'Ekstensi file tidak didukung !',
         'thumbnail_article.mimes' => 'Ekstensi file tidak didukung !',
+        'thumbnail_article.image' => 'Hanya menerima file gambar !',
+        'thumbnail_article.dimensions' => 'Dimensi gambar harus 300 x 300 pixel',
       ];
     }
 }
