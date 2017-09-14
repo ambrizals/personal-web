@@ -8,7 +8,7 @@
 			<h3><a href="{{ route('articles.show', $item->slug_article) }}">{!! $item->judul_article !!}</a></h3>
 			<p>Penulis : {!! $item->User->name !!} | Kategori : {!! $item->CategoryArticle->nama_kategori !!} | Tanggal terbit {!! $item->created_at !!}</p>
 			<div class="article-content">
-				{{ strip_tags(str_limit($item->konten_article,100)) }}
+				{{ strip_tags(str_limit($item->konten_article,300)) }}
 			</div>
 		</div>
 		@endforeach

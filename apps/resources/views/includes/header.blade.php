@@ -80,7 +80,7 @@
     <hr class="my-4">
     <div class="text-center">
       <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-code" aria-hidden="true"></i> Project</a>
-      <a class="btn btn-primary btn-lg" href="#"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Article</a>
+      <a class="btn btn-primary btn-lg" href="{{ route('articles.index') }}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Article</a>
       <div class="btn-group">
         <a href="#" class="btn btn-primary dropdown-toggle btn-lg" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Social Media
