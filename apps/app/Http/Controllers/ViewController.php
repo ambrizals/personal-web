@@ -10,9 +10,9 @@ use App\CategoryArticle;
 class ViewController extends Controller
 {
     public function article($slug_article){
-		$article = Article::where('slug_article',$slug_article)->where('flag_delete',0)->with('CategoryArticle')->with('User')->get();
+		$article = Article::where('slug_article',$slug_article)->where('flag_delete',0)->with('CategoryArticle')->with('User')->first();
 		if ($article->count() > 0) {
-			$halaman = 'Blog';
+			$halaman = 'Blog : '.$article->judul_article;
 			return view('article.show', compact('article','halaman'));
 		} else {
 			return view ('errors.article_deleted');
@@ -20,7 +20,7 @@ class ViewController extends Controller
     }
     public function articleIndex(){
 		$article = Article::where('flag_delete',0)->latest('created_at')->with('CategoryArticle')->with('User')->paginate(10);
-		$halaman = 'Blog';
+		$halaman = 'Blog : ';
 		return view('article.index_blog', compact('article','halaman'));
     }
 }

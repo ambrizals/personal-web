@@ -1,18 +1,14 @@
-@foreach ($article as $item)
 @extends('layouts.master')
-@php
-	$judul = $item->judul_article
-@endphp
-@section('title', $halaman. ' : ' .$judul)
+@section('title', $halaman)
 @section('content')
 <div class="row">
 	<div class="col-md-8 blog-page">
 		<div class="blog-header">
-			<h2>{!! $item->judul_article !!}</h2>
-			<p>Ditulis oleh : {!! $item->User->name !!} | Diterbitkan : {!! $item->created_at !!} | Kategori : {!! $item->CategoryArticle->nama_kategori !!}</p>
-			<img src="{!! url('/').'/img/article/'.$item->thumbnail_article !!}"/>
+			<h2>{!! $article->judul_article !!}</h2>
+			<p>Ditulis oleh : {!! $article->User->name !!} | Diterbitkan : {!! $article->created_at !!} | Kategori : {!! $article->CategoryArticle->nama_kategori !!}</p>
+			<img src="{!! url('/').'/img/article/'.$article->thumbnail_article !!}"/>
 		</div>
-		{!! $item->konten_article !!}
+		{!! $article->konten_article !!}
     	
 	</div>
 	<div class="col-md-4">
@@ -29,5 +25,4 @@
 		</div>
 	</div>
 </div>
-@endforeach
 @stop
