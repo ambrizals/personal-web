@@ -32,7 +32,7 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					{!! Form::label('cover_article','Cover Artikel') !!}
-					{!! Form::file('thumbnail_article',['class' => 'form-control']) !!}
+					{!! Form::file('cover_article',['class' => 'form-control']) !!}
 				</div>
 			</div>
 			<div class="col-md-6">

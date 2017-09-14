@@ -36,12 +36,12 @@ class ArticleController extends Controller
 		$article->konten_article = $request->get('konten_article');
 		if ($request->hasFile('cover_article')) {
 			$gambar = $request->file('cover_article');
-			$namafoto = 'article-'.time().'.'.$gambar->getClientOriginalExtension();
+			$namaphoto = 'article-'.time().'.'.$gambar->getClientOriginalExtension();
 			//Cover gambar
 			$destinationPath = ('img/article');
 			$uploadCover = Image::make($gambar->getRealPath());
-			$uploadCover->save($destinationPath.'/'.$namafoto,80);
-			$article->cover_article = $namafoto;
+			$uploadCover->save($destinationPath.'/'.$namaphoto,80);
+			$article->cover_article = $namaphoto;
 		} else {
 			$article->cover_article = 'default_cover.jpg';
 		}
