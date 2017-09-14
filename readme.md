@@ -1,4 +1,4 @@
-# My Personal Web (0.3)
+# My Personal Web (0.4)
 
 Aplikasi web ini dibuat menggunakan laravel dengan tujuan untuk membuat sebuah website pribadi, dimana website tersebut memiliki fitur seperti :
 - Blog
@@ -28,6 +28,13 @@ Berikut adalah packages addons yang terpasang :
 - Password : admin1234
 
 *Informasi user dapat dilihat pada direktori apps/database/seeds/UserTableSeeder.php*
+
+## Versi 0.4
+Pembaruan pada blog meliputi :
+- Penambahan slug
+- Mengganti thumbnail menjadi cover.
+- Membuat thumbnail.
+- Desain dasar halaman blog.
 
 ## Versi 0.3.1
 Pembaruan dan penyelesaian pada panel artikel.

@@ -5,7 +5,7 @@
 	<div class="col-md-8 blog-page">
 		<div class="blog-header">
 			<h2>{!! $article->judul_article !!}</h2>
-			<p>Ditulis oleh : {!! $article->User->name !!} | Diterbitkan : {!! $article->created_at !!} | Kategori : {!! $article->CategoryArticle->nama_kategori !!} | Komentar : <a href="{{ route('articles.show', $article->slug_article.'#disqus_thread') }}"></a></p>
+			<p>Ditulis oleh : {!! $article->User->name !!} | Diterbitkan : {!! $article->created_at !!} | Kategori : {!! $article->CategoryArticle->nama_kategori !!} | <a href="{{ route('articles.show', $article->slug_article.'#disqus_thread') }}"></a></p>
 			<img src="{!! url('/').'/img/article/'.$article->cover_article !!}"/>
 		</div>
 		{!! $article->konten_article !!}
