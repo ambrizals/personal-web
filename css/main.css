@@ -82,3 +82,43 @@ footer{
 	display: inline-block;
 	margin: 15px 0;
 }
+.article-box .content {
+    margin: 15px;
+    max-height: 200px;
+    overflow: hidden;
+}
+.article-box .article-header {
+	font-size:0.8em;
+}
+.cover-article{
+	height: 400px;
+	overflow: hidden;
+}
+.cover-article img{
+	width: 100%;
+	height: auto;
+	z-index: 0;
+}
+.info-article {
+	position: relative;
+	top: -60px;
+	margin-bottom: -50px;
+}
+.info-article .head{
+	background: #efefef;
+	padding: 1em;
+}
+@media screen and (max-width : 768px){
+	.article-box .thumbnail img{
+		width:100%;
+		height: auto;
+	}
+	.info-article {
+		background:#efefef;
+		top:0;
+		margin-bottom:0;
+	}
+	.cover-article{
+		height: auto;
+	}
+}

@@ -4,14 +4,16 @@
 <div class="row">
 	<div class="col-md-8 blog-page">
 		@foreach ($article as $item)
-		<div class="article-box">
+		<div class="article-box border">
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-4 thumbnail">
 					<img src="{!! url('/').'/img/thumbnail/'.$item->thumbnail_article !!}"/>
 				</div>
-				<div class="col-md-7">
-					<h3><a href="{{ route('articles.show', $item->slug_article) }}">{!! $item->judul_article !!}</a></h3>
-					<p>Penulis : {!! $item->User->name !!} | Kategori : {!! $item->CategoryArticle->nama_kategori !!} | Tanggal terbit {!! $item->created_at !!} | <a href="{{ route('articles.show', $item->slug_article.'#disqus_thread') }}"></a></p>
+				<div class="col-md-7 content">
+					<div class="article-header">
+						<h3><a href="{{ route('articles.show', $item->slug_article) }}">{!! $item->judul_article !!}</a></h3>
+						<p>Penulis : {!! $item->User->name !!} | Kategori : {!! $item->CategoryArticle->nama_kategori !!} | Tanggal terbit {!! $item->created_at !!} | <a href="{{ route('articles.show', $item->slug_article.'#disqus_thread') }}"></a></p>
+					</div>
 					<div class="article-content">
 						{{ strip_tags(str_limit($item->konten_article,300)) }}
 					</div>

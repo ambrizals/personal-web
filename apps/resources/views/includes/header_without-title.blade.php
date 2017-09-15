@@ -11,6 +11,9 @@
 <div class="panel-profil bg-light">
   <div class="container">
     <nav class="nav">
+      <div class="foto-circle">
+        <img src="{{ url('/img/profil/'.Auth::user()->fotoprofil ) }}" width="30" height="30" alt="Foto Profil">
+      </div>
       <a class="nav-link disabled" href="">Hello {{ Auth::user()->name }}</a>
       @if ($group == 2)
       <div class="dropdown show">
@@ -28,7 +31,7 @@
       </a>
 
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          {{ csrf_field() }}
+        {{ csrf_field() }}
       </form>
     </nav>
   </div>
