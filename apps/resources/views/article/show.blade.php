@@ -27,7 +27,10 @@
 			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>		
 		</div>
 	</div>
-	<div class="col-md-4">
+	<div class="sidebar-collapse">
+		<a href="#" data-toggle="collapse" data-target="#sidebar" aria-expanded="false" aria-controls="sidebar" id="sidebarCollapse-btn"><i class="fa fa-angle-double-up" aria-hidden="true" id="sidebarCollapse-ico"></i></a>
+	</div>
+	<div class="col-md-4" id="sidebar">
 		<a class="twitter-timeline" data-height="500" data-theme="dark" href="https://twitter.com/ambrizals">Tweets by ambrizals</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 		<div class="card text-white bg-dark mb-3 border-light">
 			<div class="card-header border-light">

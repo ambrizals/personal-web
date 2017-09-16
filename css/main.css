@@ -116,6 +116,9 @@ footer{
 	background: #efefef;
 	padding: 1em;
 }
+.sidebar-collapse {
+	display: none;
+}
 @media screen and (max-width : 768px){
 	.info-article {
 		background:#efefef;
@@ -136,5 +139,21 @@ footer{
 		border-bottom: 1px solid #efefef;
 		margin-bottom: 10px;
 		display:block;
+	}
+	.sidebar-collapse {
+		display: block;
+		text-align: center;
+		width:100%;
+		height: auto;
+	}
+	.sidebar-collapse a {
+		color: #fff;
+		background: #1c8686;
+		padding: 0px 10px 5px 10px;
+		font-size: 1.8em;
+	}
+	#sidebar {
+		padding-top:10px;
+		background :#1c8686;
 	}
 }

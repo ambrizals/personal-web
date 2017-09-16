@@ -83,28 +83,36 @@ class ArticleController extends Controller
 		$posts->judul_article = $request->get('judul_article');
 		$posts->kategori_article = $request->get('kategori_article');
 		$posts->konten_article = $request->get('konten_article');
-		//fungsi namafoto
+		//Cover Artikel
 		if ($request->hasFile('cover_article')) {
 			$gambar = $request->file('cover_article');
-			$namafoto = 'article-'.time().'.'.$gambar->getClientOriginalExtension();
+			$namaphoto = 'article-'.time().'.'.$gambar->getClientOriginalExtension();
 			//Cover gambar
 			$destinationPath = ('img/article');
 			$uploadCover = Image::make($gambar->getRealPath());
-			$uploadCover->save($destinationPath.'/'.$namafoto,80);
-			//Thumbnail di daftar artikel
-			$destinationThumbnail = ('img/thumbnail');
-			$uploadThumbnail = Image::make($gambar->getRealPath())->resize(300,300);
-			$uploadThumbnail->save($destinationThumbnail.'/'.$namafoto,80);
+			$uploadCover->save($destinationPath.'/'.$namaphoto,80);
+			$posts->cover_article = $namaphoto;
 		} else {
-			$namafoto = $article->cover_article;			//File foto belum tersedia
+			$posts->cover_article = $article->cover_article;
 		}
-		$posts->cover_article = $namafoto;
+		//Thumbnail di daftar artikel
+		if ($request->hasFile('thumbnail_article')){
+			$gambar = $request->file('thumbnail_article');
+			$namafoto = 'article-'.time().'.'.$gambar->getClientOriginalExtension();
+			$destinationThumbnail = ('img/thumbnail');
+			$uploadThumbnail = Image::make($gambar->getRealPath());
+			$uploadThumbnail->save($destinationThumbnail.'/'.$namafoto,80);
+			$posts->thumbnail_article = $namafoto;
+		} else {
+			$posts->thumbnail_article = $article->thumbnail_article;
+		}
 		Article::where('id_article', $article->id_article)
 						->update([
 							'judul_article' => $posts->judul_article,
 							'kategori_article' => $posts->kategori_article,
 							'konten_article' => $posts->konten_article,
 							'cover_article' => $posts->cover_article,
+							'thumbnail_article' => $posts->thumbnail_article,
 		]);
 		return redirect()->route('posts.index')->with('pesan','Artikel telah diupdate !');
 	}

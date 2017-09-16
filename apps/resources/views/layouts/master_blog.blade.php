@@ -6,6 +6,10 @@
         {{ Html::style('css/main.css') }}
         {{ Html::style('css/font-awesome.min.css') }}
         {{ Html::script('ckeditor/ckeditor.js') }}
+        {{ Html::script('js/jquery.min.js') }}
+        {{ Html::script('js/main.js') }}
+        {{ Html::script('js/popper.min.js') }}
+        {{ Html::script('js/bootstrap.min.js') }}
         <script id="dsq-count-scr" src="//ambrizalofficialsblog.disqus.com/count.js" async></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
@@ -27,9 +31,6 @@
         <div class="container content">
             @yield('content')   
         </div>
-        {{ Html::script('js/jquery-3.2.1.slim.min.js') }}
-        {{ Html::script('js/popper.min.js') }}
-        {{ Html::script('js/bootstrap.min.js') }}
         @include('includes.footer')
     </body>
 </html>

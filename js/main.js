@@ -14,3 +14,19 @@ $(window).on('resize', function sidebarPanel() {
         $(".sidebar").removeClass("sidebar collapse").addClass("sidebar");
     }
 });
+$(window).on('load', function sidebar() {
+    var viewportWidth = $(window).width();
+    if (viewportWidth < 768) {
+        $("#sidebar").addClass("collapse");
+    } else {
+        $("#sidebar").removeClass("collapse");
+    }
+});
+$(window).on('resize', function sidebar() {
+    var viewportWidth = $(window).width();
+    if (viewportWidth < 768) {
+        $("#sidebar").addClass("collapse");
+    } else {
+        $("#sidebar").removeClass("collapse");
+    }
+});
