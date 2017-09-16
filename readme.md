@@ -10,9 +10,9 @@ Untuk menggunakannya anda perlu memahami spesifikasi yang dibutuhkan oleh larave
 
 - Clone repositori ini atau download langsung dari browser setelah itu diextract.
 - Buka folder yang telah diclone atau diextract melalui cmd.
-- Buka folder "bokep" dengan menggunakan cmd dengan perintah "cd apps"
+- Buka folder "apps" dengan menggunakan cmd dengan perintah "cd apps"
 - Pastikan composer telah terinstall dan lakukan perintah "composer update"
-- Pada folder "bokep" rename file ".env.example" menjadi ".env"
+- Pada folder "apps" rename file ".env.example" menjadi ".env"
 - Buka file ".env" lalu ubah beberapa konfigurasi agar dapat dijalankan.
 - Kembali ke cmd, lakukan perintah "php artisan key:generate"
 
