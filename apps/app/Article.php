@@ -9,6 +9,7 @@ class Article extends Model
     protected $primaryKey = 'id_article';
     protected $table = 'article';
     protected $fillable = ['akun_id','judul_article','slug_article','kategori_article','konten_article','cover_article','thumbnail_article'];
+    protected $with = ['CategoryArticle','User'];
 
     public function CategoryArticle(){
       return $this->belongsTo('App\CategoryArticle','kategori_article','id_category');

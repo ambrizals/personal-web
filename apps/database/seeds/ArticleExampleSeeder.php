@@ -14,7 +14,10 @@ class ArticleExampleSeeder extends Seeder
         DB::table('category_article')->insert([
           'id_category' => '1',
           'nama_kategori' => 'Default',
+          'slug_kategori' => 'default',
           'flag_delete' => '0',
+          'created_at' => '2017-09-16 11:30:34',
+          'updated_at' => '2017-09-16 11:30:34',
         ]);
         DB::table('article')->insert([
           'id_article' => '1',
@@ -26,6 +29,8 @@ class ArticleExampleSeeder extends Seeder
           'cover_article' => 'default_cover.jpg',
           'thumbnail_article' => 'default_cover.jpg',
           'flag_delete' => '0',
+          'created_at' => '2017-09-16 11:30:34',
+          'updated_at' => '2017-09-16 11:30:34',
         ]);
     }
 }

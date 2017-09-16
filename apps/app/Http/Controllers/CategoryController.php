@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Yajra\Datatables\Datatables;
 use App\CategoryArticle;
 use Request;
@@ -22,7 +23,10 @@ class CategoryController extends Controller
 		return 'Fungsi di matikan';
 	}
 	public function store(CreateCategoryRequest $request){
-		CategoryArticle::create($request->all());
+		$category = new CategoryArticle;
+		$category->nama_kategori = $request->get('nama_kategori');
+		$category->slug_kategori = Str::slug($request->get('nama_kategori'));
+		$category->save();
 		return redirect('/panel/article/category')->with('pesan','Category telah dibuat');
 	}
 	public function edit($id_category){
