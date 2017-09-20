@@ -19,12 +19,12 @@ class ArticleController extends Controller
 	}
 	public function index(){
 		$halaman = 'Panel Artikel';
-		return view('article.index', compact('halaman'));
+		return view('panel.article.index', compact('halaman'));
 	}
 	public function create(){
 		$category = CategoryArticle::where('flag_delete',0)->pluck('nama_kategori','id_category');
 		$halaman = 'Buat Artikel';
-		return view('article.create', compact('halaman','category') );
+		return view('panel.article.create', compact('halaman','category') );
 	}
 	public function store(CreateArticleRequests $request){
 		// Prepare Statement
@@ -75,7 +75,7 @@ class ArticleController extends Controller
 		$posts = Article::find($id_article);
 		$category = CategoryArticle::where('flag_delete',0)->pluck('nama_kategori','id_category');
 		$halaman = 'Ubah Artikel';
-		return view('article.edit', compact('posts','category','halaman'));
+		return view('panel.article.edit', compact('posts','category','halaman'));
 	}
 	public function update(Request $request, $id_article) {
 		$posts = new Article;

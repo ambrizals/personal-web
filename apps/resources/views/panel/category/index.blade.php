@@ -1,46 +1,39 @@
-@extends('layouts.master_white')
+@extends('layouts.master_panel')
 @section('title','Kategori Article')
 @section('content')
-<div class="row">
-	<div class="col-md-3 sidebar-left">
-		@include('includes.sidebar_panel')
+@If (Session::has('pesan'))
+<div class="alert alert-success">
+	{{ Session::get('pesan') }}
+</div>
+@Endif
+@if ($errors->any())
+<div class="alert alert-warning">
+	@foreach($errors->all() as $error)
+		<li>{{ $error }}</li>
+	@endforeach
+</div>
+@endif
+<div class="card">
+	<div class="card-header">
+		<div class="row">
+			<div class="col-md-4">
+				Daftar Kategori
+			</div>
+			<div class="col-md-8 text-right">
+				<a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambah-kategori">Tambah Kategori</a>
+			</div>
+		</div>
 	</div>
-	<div class="col-md-9 content-page">
-		@If (Session::has('pesan'))
-		<div class="alert alert-success">
-			{{ Session::get('pesan') }}
-		</div>
-		@Endif
-		@if ($errors->any())
-		<div class="alert alert-warning">
-			@foreach($errors->all() as $error)
-				<li>{{ $error }}</li>
-			@endforeach
-		</div>
-		@endif
-		<div class="card">
-			<div class="card-header">
-				<div class="row">
-					<div class="col-md-4">
-						Daftar Kategori
-					</div>
-					<div class="col-md-8 text-right">
-						<a href="#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#tambah-kategori">Tambah Kategori</a>
-					</div>
-				</div>
-			</div>
-			<div class="card-body">
-				<table class="table" id="daftarCategory">
-					<thead>
-						<tr>
-							<th>ID Kategori</th>
-							<th>Nama Kategori</th>
-							<th>Aksi</th>
-						</tr>
-					</thead>
-				</table>
-			</div>
-		</div>
+	<div class="card-body">
+		<table class="table" id="daftarCategory">
+			<thead>
+				<tr>
+					<th>ID Kategori</th>
+					<th>Nama Kategori</th>
+					<th>Aksi</th>
+				</tr>
+			</thead>
+		</table>
 	</div>
 </div>
 <div class="modal fade" id="tambah-kategori" tabindex="-1" role="dialog" aria-labelledby="tambah-kategori" aria-hidden="true">
