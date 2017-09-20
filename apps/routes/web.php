@@ -27,7 +27,7 @@ Route::prefix('akun')->group(function () {
 Route::group(['prefix'=>'panel'], function() {
 	Route::group(['prefix' => 'article'], function() {
 		Route::get('/', function() {
-			return redirect('panel/article/posts');
+			return redirect()->route('posts.index');
 		});
 		Route::resource('posts','ArticleController');
   		Route::resource('category','CategoryController');
@@ -40,7 +40,7 @@ Route::group(['prefix'=>'panel'], function() {
 		Route::get('archive','ArchiveArticleController@index')->name('Archive Pages');
 	});
 	Route::group(['prefix' => 'project'], function() {
-		Route::resource('/','ProjectController');
+		Route::resource('/item','ProjectController');
 	});
 });
 Auth::routes();
@@ -49,5 +49,4 @@ Route::group(['prefix' => 'blog'], function() {
 	Route::get('/','ViewController@articleIndex')->name('articles.index');
 	Route::get('category/{slug}','ViewController@categoryArticleIndex')->name('articles.category');
 });
-Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/upload_image', 'ImagesUploadController@CKEditor');
