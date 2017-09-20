@@ -25,6 +25,9 @@ Route::prefix('akun')->group(function () {
 	Route::put('/updatepassword', 'AkunController@updatePassword')->name('Update Password');
 });
 Route::group(['prefix'=>'panel'], function() {
+	Route::get('/', function(){
+		return redirect()->route('posts.index');
+	});
 	Route::group(['prefix' => 'article'], function() {
 		Route::get('/', function() {
 			return redirect()->route('posts.index');
@@ -39,9 +42,8 @@ Route::group(['prefix'=>'panel'], function() {
 		});
 		Route::get('archive','ArchiveArticleController@index')->name('Archive Pages');
 	});
-	Route::group(['prefix' => 'project'], function() {
-		Route::resource('/item','ProjectController');
-	});
+	Route::resource('/project','ProjectController');
+	Route::resource('/page','PageController');
 });
 Auth::routes();
 Route::group(['prefix' => 'blog'], function() {
