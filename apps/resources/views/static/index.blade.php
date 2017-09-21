@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master_index')
 @section('title', 'Beranda')
 @section('content')
 <div class="twitter">

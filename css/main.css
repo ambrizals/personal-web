@@ -37,6 +37,10 @@ footer{
 	border-color: #efefef;
 	border-width: 0 1px;
 }
+.nav-blog{
+	margin: 0;
+	border-radius: 0;
+}
 .content-page {
 	padding: 2em 1em;
 	border-style: solid;

@@ -51,6 +51,10 @@
 					{!! Form::label('nama_kategori','Nama Kategori') !!}
 					{!! Form::text('nama_kategori', null, ['class'=>'form-control','placeholder'=>'Masukkan nama kategori']) !!}
 				</div>
+				<div class="form-group">
+					{!! Form::label('deskripsi_kategori','Deskripsi Kategori') !!}
+					{!! Form::textarea('deskripsi_kategori', null, ['class'=>'form-control','placeholder'=>'Masukkan nama kategori']) !!}
+				</div>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

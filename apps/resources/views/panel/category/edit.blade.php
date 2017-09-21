@@ -11,6 +11,10 @@
 			{!! Form::label('nama_kategori','Nama Kategori') !!}
 			{!! Form::text('nama_kategori', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nama kategori']) !!}
 		</div>
+		<div class="form-group">
+			{!! Form::label('deskripsi_kategori','Deskripsi Kategori') !!}
+			{!! Form::textarea('deskripsi_kategori', null, ['class' => 'form-control', 'placeholder' => 'Masukkan nama kategori']) !!}
+		</div>
 		{!! Form::submit('Simpan Perubahan', ['class' => 'btn btn-primary btn-block']) !!}
 		{!! Form::close() !!}
 	</div>

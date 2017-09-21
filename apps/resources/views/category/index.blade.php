@@ -1,5 +1,5 @@
-@extends('layouts.master_default_page')
-@section('title', $halaman)
+@extends('layouts.master_category_blog')
+@section('title', 'Kategori Blog : '. $category->nama_kategori )
 @section('content')
 @foreach ($article as $item)
 <div class="article-box border">

@@ -14,6 +14,7 @@ class ArticleExampleSeeder extends Seeder
         DB::table('category_article')->insert([
           'id_category' => '1',
           'nama_kategori' => 'Default',
+          'deskripsi_kategori' => 'Kategori default',
           'slug_kategori' => 'default',
           'flag_delete' => '0',
           'created_at' => '2017-09-16 11:30:34',
