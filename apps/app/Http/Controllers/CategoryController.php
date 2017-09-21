@@ -17,7 +17,7 @@ class CategoryController extends Controller
     }
     public function index(){
 		$halaman = 'Panel Category';
-		return view('category.index', compact('halaman'));
+		return view('panel.category.index', compact('halaman'));
     }
 	public function create(){
 		return 'Fungsi di matikan';
@@ -27,21 +27,21 @@ class CategoryController extends Controller
 		$category->nama_kategori = $request->get('nama_kategori');
 		$category->slug_kategori = Str::slug($request->get('nama_kategori'));
 		$category->save();
-		return redirect('/panel/article/category')->with('pesan','Category telah dibuat');
+		return redirect()->route('category.index')->with('pesan','Category telah dibuat');
 	}
 	public function edit($id_category){
 		$CategoryArticle = CategoryArticle::find($id_category);
 		$halaman = 'Ubah Kategori';
-		return view('category.edit', compact('CategoryArticle','halaman'));
+		return view('panel.category.edit', compact('CategoryArticle','halaman'));
 	}
 	public function update($id_category) {
 		$CategoryArticle = CategoryArticle::find($id_category);
 		$CategoryArticle->update(Request::all());
-		return redirect('/panel/article/category')->with('pesan','Category telah di ubah');
+		return redirect()->route('category.index')->with('pesan','Category telah di ubah');
 	}
 	public function destroy($id_category){
 		CategoryArticle::where('id_category',$id_category)->update(['flag_delete' => 1]);
-		return redirect('/panel/article/category')->with('pesan','Category telah diarsip');
+		return redirect()->route('category.index')->with('pesan','Category telah diarsip');
 	}
 	public function daftarCategory(){
 		$kategori = CategoryArticle::where('flag_delete',0)->latest('created_at')->get();

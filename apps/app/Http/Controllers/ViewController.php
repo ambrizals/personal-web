@@ -29,9 +29,8 @@ class ViewController extends Controller
 			return view ('errors.404');
 		} else {
 			$flag_kategori = $category->id_category;
-			$halaman = 'Blog : ('. $category->nama_kategori.')';
 			$article = Article::where('flag_delete',0)->latest('created_at')->where('kategori_article',$flag_kategori)->paginate(10);
-			return view('article.index_blog', compact('article','halaman'));
+			return view('category.index', compact('article','category'));
 		}
 	}
 }

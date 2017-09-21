@@ -16,6 +16,7 @@ class CreateCategoryArticleTable extends Migration
         Schema::create('category_article', function (Blueprint $table) {
             $table->increments('id_category');
             $table->string('nama_kategori');
+            $table->text('deskripsi_kategori');
             $table->string('slug_kategori');
             $table->integer('flag_delete'); 
             $table->timestamps();

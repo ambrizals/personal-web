@@ -51,5 +51,4 @@ Route::group(['prefix' => 'blog'], function() {
 	Route::get('/','ViewController@articleIndex')->name('articles.index');
 	Route::get('category/{slug}','ViewController@categoryArticleIndex')->name('articles.category');
 });
-Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/upload_image', 'ImagesUploadController@CKEditor');
