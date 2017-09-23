@@ -19,7 +19,8 @@
       <div class="dropdown show">
         <a class="nav-link dropdown-toggle" href="#" role="button" id="panel" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Panel</a>
         <div class="dropdown-menu" aria-labelledby="panel">
-          <a class="dropdown-item" href="{{ url('/panel/article') }}">Artikel</a>
+          <a class="dropdown-item" href="{{ route('article.index') }}">Artikel</a>
+          <a class="dropdown-item" href="{{ route('page.index') }}">Page Builder</a>
           <a class="dropdown-item" href="#">Project</a>
           <a class="dropdown-item" href="#">Pengaturan Situs</a>
         </div>

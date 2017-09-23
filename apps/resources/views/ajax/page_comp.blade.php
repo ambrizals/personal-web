@@ -1,1 +1,1 @@
-<a class="btn btn-primary" href="{{ route('page.edit',$page->id_page) }}">Atur</a>
+<a class="btn btn-primary" href="{{ route('page.edit',$page->id_page) }}">Atur</a>  <a class="btn btn-primary" href="{{ route('pages',$page->slug_page) }}">Lihat</a>

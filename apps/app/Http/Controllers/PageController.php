@@ -14,6 +14,9 @@ use Image;
 
 class PageController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth');
+    }
     public function index(){
         $halaman = 'Page Builder';
     	return view('panel.page.index', compact('halaman'));
@@ -81,7 +84,7 @@ class PageController extends Controller
         return redirect()->route('page.index')->with('pesan','Halaman telah diupdate !');
     }
     public function destroy($id_page){
-    	return 'Wkwkw land';
+    	return 'Disabled';
     }
     public function getData(){
         $page = page::latest('created_at')->where('flag_delete',0)->get();
