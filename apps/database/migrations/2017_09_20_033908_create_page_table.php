@@ -17,8 +17,10 @@ class CreatePageTable extends Migration
             $table->increments('id_page');
             $table->integer('akun_id')->unsigned();
             $table->string('judul_page');
+            $table->string('slug_page');
             $table->text('konten_page');
             $table->string('cover_page');
+            $table->integer('flag_delete');
             $table->timestamps();
 
             $table->foreign('akun_id')->references('id')->on('users');

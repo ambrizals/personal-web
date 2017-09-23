@@ -25,7 +25,7 @@ class CreatePageRequest extends FormRequest
     {
         return [
             'judul_page' => 'required',
-            'konten_page' => 'requred',
+            'konten_page' => 'required',
             'cover_page' => 'mimes:jpg,jpeg,png|image',
         ];
     }

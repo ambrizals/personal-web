@@ -12,7 +12,7 @@ class ArchiveArticleController extends Controller
 {
     public function index(){
         $halaman = 'Arsip Artikel';
-        return view('article-archive.index', compact('halaman'));
+        return view('panel.archive.index', compact('halaman'));
     }
     public function articleLoad(){
       $posts = Article::select(['article.id_article','category_article.nama_kategori','article.judul_article','users.name','article.thumbnail_article','article.created_at','article.updated_at'])
