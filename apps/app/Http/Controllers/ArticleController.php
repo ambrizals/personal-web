@@ -59,7 +59,6 @@ class ArticleController extends Controller
 		
 		// Check duplicate slug
 		$posts = Article::where('slug_article',$article->slug_article)->where('flag_delete',0)->get();
-		echo $posts->count();
 		if ($posts->count() > 0) {
 			$article->judul_article = $request->get('judul_article').' ('.$posts->count().')';
 			$article->slug_article = Str::slug($request->get('judul_article')).'-'.$posts->count();

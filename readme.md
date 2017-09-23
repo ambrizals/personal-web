@@ -29,6 +29,9 @@ Berikut adalah packages addons yang terpasang :
 
 *Informasi user dapat dilihat pada direktori apps/database/seeds/UserTableSeeder.php*
 
+## Versi 0.4.7
+Perubahan struktur file blade dan penambahan modul dasar page builder.
+
 ## Versi 0.4.1
 Pembaruan gaya pada interface artikel.
 
