@@ -1,0 +1,1 @@
+<a class="btn btn-primary" href="{{ route('page.edit',$page->id_page) }}">Atur</a>
