@@ -44,7 +44,9 @@ Route::group(['prefix'=>'panel'], function() {
 	});
 	Route::resource('/project','ProjectController');
 	Route::group(['prefix' => 'page'], function(){
+		Route::get('/archiveLoad','PageController@getArchive')->name('page.loadarchive');
 		Route::get('/pageLoad','PageController@getData')->name('page.loaddata');
+		Route::get('archive','PageController@archive')->name('page.archive');
 	});
 	Route::resource('/page','PageController');
 });

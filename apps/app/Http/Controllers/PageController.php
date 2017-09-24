@@ -84,7 +84,12 @@ class PageController extends Controller
         return redirect()->route('page.index')->with('pesan','Halaman telah diupdate !');
     }
     public function destroy($id_page){
-    	return 'Disabled';
+    	page::where('id_page',$id_page)->update(['flag_delete',1]);
+        return redirect()->route('page.index')->with('pesan','Halaman telah dihapus !');
+    }
+    public function archive(){
+        $halaman = 'Arsip Halaman';
+        return view('panel.page.archive', compact('halaman'));
     }
     public function getData(){
         $page = page::latest('created_at')->where('flag_delete',0)->get();
@@ -93,5 +98,9 @@ class PageController extends Controller
                     return view('ajax.page_comp', compact('page'));
                 })
                 ->make(true);
+    }
+    public function getArchive(){
+        $page = page::latest('created_at')->where('flag_delete',1)->get();
+        return Datatables::of($page)->make(true);
     }
 }
