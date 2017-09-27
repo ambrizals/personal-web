@@ -11,19 +11,19 @@
         <nav class="breadcrumb nav-blog">
             <div class="container">
                 <a class="breadcrumb-item" href="{{ url('') }}">Home</a>
-                <a class="breadcrumb-item" href="{{ route('articles.category',$article->CategoryArticle->slug_kategori) }}">{!! $article->CategoryArticle->nama_kategori !!}</a>
-                <a class="breadcrumb-item active" href="{{ url()->current() }}">{!! $article->judul_article !!}</a>
+                <a class="breadcrumb-item active" href="{{ url()->current() }}">{!! $page->judul_page !!}</a>
             </div>
         </nav>
         <div class="cover-article">
-            <img src="{!! url('/').'/img/article/'.$article->cover_article !!}"/>
+            <img src="{!! url('/').'/img/page/'.$page->cover_page !!}"/>
         </div>
         <div class="info-article">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 head">
-                        <h2>{!! $article->judul_article !!}</h2>
-                        <p>Ditulis oleh : {!! $article->User->name !!} | Diterbitkan : {!! $article->created_at !!} | Kategori : {!! $article->CategoryArticle->nama_kategori !!}</p>
+                        <h2>{!! $page->judul_page !!}</h2>
+                        <p>Ditulis oleh : {!! $page->User->name !!} | Diterbitkan : {!! $page->created_at !!} 
+                        </p>
                     </div>
                 </div>
             </div>

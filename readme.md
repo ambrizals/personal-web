@@ -1,4 +1,4 @@
-# My Personal Web (0.4.7) [BETA]
+# My Personal Web (0.4.8) [BETA]
 
 Aplikasi web ini dibuat menggunakan laravel dengan tujuan untuk membuat sebuah website pribadi, dimana website tersebut memiliki fitur seperti :
 - Blog
@@ -28,6 +28,13 @@ Berikut adalah packages addons yang terpasang :
 - Password : admin1234
 
 *Informasi user dapat dilihat pada direktori apps/database/seeds/UserTableSeeder.php*
+
+## Versi 0.4.8
+Change log :
+- Upgrade framework laravel from version 5.4 to version 5.5
+- Upgrade LaravelCollective/HTML packages (developer/ not stable)
+- Modifying layout and make a new blade part of head
+- Changing HTML function (LaravelCollective/HTML) with asset
 
 ## Versi 0.4.7
 Perubahan struktur file blade dan penambahan modul dasar page builder.
@@ -99,9 +106,12 @@ We would like to extend our thanks to the following sponsors for helping fund on
 - **[Vehikl](http://vehikl.com)**
 - **[Tighten Co.](https://tighten.co)**
 - **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
 - [Fragrantica](https://www.fragrantica.com)
 - [SOFTonSOFA](https://softonsofa.com/)
+- [User10](https://user10.com)
+- [Soumettre.fr](https://soumettre.fr/)
+- [CodeBrisk](https://codebrisk.com)
+- [1Forge](https://1forge.com)
 
 ## Contributing
 

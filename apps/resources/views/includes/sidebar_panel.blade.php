@@ -21,7 +21,7 @@
 		<li class="text-dark"><i class="fa fa-newspaper-o"></i> Page
 			<ul>
 				<li><a href="{{ route('page.index') }}" class="text-secondary"><i class="fa fa-bars"></i> Daftar Halaman</a></li>
-				<li><a href="#" class="text-secondary"><i class="fa fa-bars"></i> Daftar Arsip</a></li>
+				<li><a href="{{ route('page.archive') }}" class="text-secondary"><i class="fa fa-bars"></i> Daftar Arsip</a></li>
 			</ul>
 		</li>
 		<li class="text-dark"><i class="fa fa-code-fork"></i> Project

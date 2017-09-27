@@ -31,7 +31,7 @@ Route::group(['prefix'=>'panel'], function() {
 	Route::group(['prefix' => 'article'], function() {
 		Route::get('/', function() {
 			return redirect()->route('posts.index');
-		});
+		})->name('article.index');
 		Route::resource('posts','ArticleController');
   		Route::resource('category','CategoryController');
 		Route::get('categoryLoad','CategoryController@daftarCategory')->name('Ajax Load Category');
@@ -44,7 +44,9 @@ Route::group(['prefix'=>'panel'], function() {
 	});
 	Route::resource('/project','ProjectController');
 	Route::group(['prefix' => 'page'], function(){
+		Route::get('/archiveLoad','PageController@getArchive')->name('page.loadarchive');
 		Route::get('/pageLoad','PageController@getData')->name('page.loaddata');
+		Route::get('archive','PageController@archive')->name('page.archive');
 	});
 	Route::resource('/page','PageController');
 });
@@ -54,4 +56,5 @@ Route::group(['prefix' => 'blog'], function() {
 	Route::get('/','ViewController@articleIndex')->name('articles.index');
 	Route::get('category/{slug}','ViewController@categoryArticleIndex')->name('articles.category');
 });
+Route::get('page/{slug}','ViewController@showPage')->name('pages');
 Route::post('/upload_image', 'ImagesUploadController@CKEditor');

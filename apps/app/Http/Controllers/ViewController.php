@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
 use App\CategoryArticle;
+use App\page;
 
 class ViewController extends Controller
 {
@@ -31,6 +32,15 @@ class ViewController extends Controller
 			$flag_kategori = $category->id_category;
 			$article = Article::where('flag_delete',0)->latest('created_at')->where('kategori_article',$flag_kategori)->paginate(10);
 			return view('category.index', compact('article','category'));
+		}
+	}
+	public function showPage($slug_page) {
+		$page = page::where('slug_page',$slug_page)->where('flag_delete',0)->first();
+		if ($page == null) {
+			return view ('errors.404');
+		} else {
+			$halaman = $page->judul_page;
+			return view('page', compact('page','halaman'));
 		}
 	}
 }
