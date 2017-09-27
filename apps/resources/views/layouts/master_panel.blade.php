@@ -3,11 +3,7 @@
     <head>
         <title>@yield('title')</title>
         {{ Html::style('css/jquery.datatable.css') }}
-        {{ Html::style('css/bootstrap.min.css') }}
-        {{ Html::style('css/main.css') }}
-        {{ Html::style('css/font-awesome.min.css') }}
-        {{ Html::script('js/jquery.min.js') }}
-        {{ Html::script('js/main.js') }}
+        @include('includes.head')
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
     <body>
@@ -25,8 +21,6 @@
             </div>
         </div>
         <!-- /.row --> 
-        {{ Html::script('js/popper.min.js') }}
-        {{ Html::script('js/bootstrap.min.js') }}
         @stack('dataku')
         @include('includes.footer')
     </body>

@@ -2,14 +2,7 @@
 <html lang="en">
     <head>
         <title>@yield('title')</title>
-        {{ Html::style('css/bootstrap.min.css') }}
-        {{ Html::style('css/main.css') }}
-        {{ Html::style('css/font-awesome.min.css') }}
-        {{ Html::script('ckeditor/ckeditor.js') }}
-        {{ Html::script('js/jquery.min.js') }}
-        {{ Html::script('js/main.js') }}
-        {{ Html::script('js/popper.min.js') }}
-        {{ Html::script('js/bootstrap.min.js') }}
+        @include('includes.head')
         <script id="dsq-count-scr" src="//ambrizalofficialsblog.disqus.com/count.js" async></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
