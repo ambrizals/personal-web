@@ -11,6 +11,7 @@
         <nav class="breadcrumb nav-blog">
             <div class="container">
                 <a class="breadcrumb-item" href="{{ url('') }}">Home</a>
+                <a class="breadcrumb-item" href="{{ route('articles.index') }}">Blog</a>
                 <a class="breadcrumb-item" href="{{ route('articles.category',$article->CategoryArticle->slug_kategori) }}">{!! $article->CategoryArticle->nama_kategori !!}</a>
                 <a class="breadcrumb-item active" href="{{ url()->current() }}">{!! $article->judul_article !!}</a>
             </div>
@@ -21,9 +22,20 @@
         <div class="info-article">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 head">
-                        <h2>{!! $article->judul_article !!}</h2>
-                        <p>Ditulis oleh : {!! $article->User->name !!} | Diterbitkan : {!! $article->created_at !!} | Kategori : {!! $article->CategoryArticle->nama_kategori !!}</p>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-auto time_article">
+                                <div class="content">
+                                    <span class="date">{{ $article->created_at->format('d') }}</span>
+                                    <span class="month">{{ $article->created_at->format('F') }}</span>
+                                    <span class="year">{{ $article->created_at->format('Y') }}</span>
+                                </div>
+                            </div>
+                            <div class="col head">
+                                <h2>{!! $article->judul_article !!}</h2>
+                                <span class="detail">Ditulis oleh : {!! $article->User->name !!} | Kategori : {!! $article->CategoryArticle->nama_kategori !!}</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -43,4 +43,5 @@ class ViewController extends Controller
 			return view('page', compact('page','halaman'));
 		}
 	}
+
 }
