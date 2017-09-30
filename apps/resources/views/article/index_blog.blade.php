@@ -10,7 +10,7 @@
 		<div class="col-md-7 content">
 			<div class="article-header">
 				<h3><a href="{{ route('articles.show', $item->slug_article) }}">{!! $item->judul_article !!}</a></h3>
-				<p>Penulis : {!! $item->User->name !!} | Kategori : <a href="{{ route('articles.category', $item->CategoryArticle->slug_kategori) }}">{!! $item->CategoryArticle->nama_kategori !!}</a> | Tanggal terbit {!! $item->created_at !!} | <a href="{{ route('articles.show', $item->slug_article.'#disqus_thread') }}"></a></p>
+				<p>Penulis : {!! $item->User->name !!} | Kategori : <a href="{{ route('articles.category', $item->CategoryArticle->slug_kategori) }}">{!! $item->CategoryArticle->nama_kategori !!}</a> | Tanggal terbit {!! $item->created_at !!} | {!! $item->comment_article !!} Komentar</p>
 			</div>
 			<div class="article-content">
 				{{ strip_tags(str_limit($item->konten_article,300)) }}

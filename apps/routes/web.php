@@ -55,7 +55,7 @@ Route::group(['prefix' => 'blog'], function() {
 	Route::get('read/{slug}','ViewController@article')->name('articles.show');
 	Route::get('/','ViewController@articleIndex')->name('articles.index');
 	Route::get('category/{slug}','ViewController@categoryArticleIndex')->name('articles.category');
-	Route::post('read/{slug}','CommentController@postComment')->name('articles.comment');
+	Route::post('read/{id_article}','CommentController@postComment')->name('articles.comment');
 });
 Route::get('page/{slug}','ViewController@showPage')->name('pages');
 Route::post('/upload_image', 'ImagesUploadController@CKEditor');

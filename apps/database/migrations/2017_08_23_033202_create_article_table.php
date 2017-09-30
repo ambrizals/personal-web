@@ -22,6 +22,7 @@ class CreateArticleTable extends Migration
             $table->text('konten_article');
             $table->string('cover_article');
             $table->string('thumbnail_article');
+            $table->integer('comment_article')->default('0');
             $table->integer('flag_delete');
             $table->timestamps();
 

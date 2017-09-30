@@ -40,10 +40,10 @@ class AkunController extends Controller
       $akunid = Auth::user()->id;
       if ($request->hasFile('fotoprofil')) {
         $fotoprofil = $request->file('fotoprofil');
-        $namafoto = 'profil-'.$akunid.'.'.$fotoprofil->getClientOriginalExtension();
+        $namafoto = 'profil-'.$akunid.'.'.'jpg';
 
         $destinationPath = ('img/profil');
-        $ubah_foto = Image::make($fotoprofil->getRealPath())->resize(150,150);
+        $ubah_foto = Image::make($fotoprofil->getRealPath())->resize(150,150)->encode('jpg');
         unlink($destinationPath.'/'.Auth::user()->fotoprofil);
         $ubah_foto->save($destinationPath.'/'.$namafoto,80);
       }else {

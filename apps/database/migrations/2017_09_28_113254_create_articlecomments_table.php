@@ -16,12 +16,14 @@ class CreateArticlecommentsTable extends Migration
         Schema::create('article_comments', function (Blueprint $table) {
             $table->increments('id_comment');
             $table->integer('article_comment')->unsigned();
+            $table->integer('akun_id')->nullable()->unsigned();
             $table->string('nama_comment');
             $table->text('content_comment');
             $table->integer('flag_delete');
             $table->timestamps();
 
             $table->foreign('article_comment')->references('id_article')->on('article');
+            $table->foreign('akun_id')->references('id')->on('users');
         });
     }
 
