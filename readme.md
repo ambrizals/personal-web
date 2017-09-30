@@ -29,6 +29,13 @@ Berikut adalah packages addons yang terpasang :
 
 *Informasi user dapat dilihat pada direktori apps/database/seeds/UserTableSeeder.php*
 
+## Versi : 0.4.9
+Change log :
+- Updating User Interface (UI Ver.0.9.26)
+- Adding new basic comment feature in article (Manage comment in panel is available soon)
+- Updating article table (Adding comment count column)
+- Create converter when uploading a new photo to JPG Format.
+
 ## Versi 0.4.8
 Change log :
 - Upgrade framework laravel from version 5.4 to version 5.5

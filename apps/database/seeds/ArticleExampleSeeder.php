@@ -29,6 +29,7 @@ class ArticleExampleSeeder extends Seeder
           'konten_article' => '<p>Hello World, ini postingan pertama kamu.</p>',
           'cover_article' => 'default_cover.jpg',
           'thumbnail_article' => 'default_cover.jpg',
+          'comment_article' => '1',
           'flag_delete' => '0',
           'created_at' => '2017-09-16 11:30:34',
           'updated_at' => '2017-09-16 11:30:34',

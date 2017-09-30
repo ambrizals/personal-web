@@ -7,16 +7,18 @@ use App\Http\Controllers\Controller;
 use App\Article;
 use App\CategoryArticle;
 use App\page;
+use App\article_comment;
 
 class ViewController extends Controller
 {
     public function article($slug_article){
 		$article = Article::where('slug_article',$slug_article)->where('flag_delete',0)->with('CategoryArticle')->with('User')->first();
+		$comment = article_comment::where('article_comment',$article->id_article)->paginate(10,['*'],'comment');
 		if ($article == null) {
 			return view ('errors.404');
 		} else {
 			$halaman = 'Blog : '.$article->judul_article;
-			return view('article.show', compact('article','halaman'));
+			return view('article.show', compact('article','halaman','comment'));
 		}
     }
     public function articleIndex(){
@@ -43,4 +45,5 @@ class ViewController extends Controller
 			return view('page', compact('page','halaman'));
 		}
 	}
+
 }

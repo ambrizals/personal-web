@@ -2,26 +2,49 @@
 @section('title', $halaman)
 @section('content')
 {!! $article->konten_article !!}
-<div class="comment-box">
-<div id="disqus_thread"></div>
+<div class="card text-dark">
+	<div class="card-header">
+		Komentar
+	</div>
+	<div class="card-body">
+	@foreach($comment as $item)
+		<div class="row">
+			<div class="col-2">
+				@if($item->akun_id == 0)
+					<img src="{{ url('/img/profil').'/default_fotoprofil.jpg' }}"/>
+				@else
+					<img src="{{ url('/img/profil').'/profil-'.$item->akun_id.'.jpg' }}"/>
+				@endif
+			</div>
+			<div class="col-8">
+				<span class="lead">{!! $item->nama_comment !!}</span>
+				<p>{!! $item->content_comment !!}</p>
+			</div>
+		</div>		
+		<hr/>
+	@endforeach
+		{!! Form::open(['route' => ['articles.comment', $article->id_article],'method' => 'POST', 'class' => 'form-control']) !!}
+		@If (Session::has('comment'))
+		<div class="alert alert-success">
+			{{ Session::get('comment') }}
+		</div>
+		@Endif
+		<div class="form-group">
+			{!! Form::label('nama_comment','Nama :') !!}
+			@if (Auth::check())
+			<p>Anda telah login menggunakan user ({{ Auth::user()->name }})</p>
+			{!! Form::hidden('nama_comment',Auth::user()->name) !!}
+			@else
+			{!! Form::text('nama_comment',null,['class' => 'form-control', 'placeholder' => 'Masukkan nama anda!']) !!}
+			@endif
+		</div>
+		<div class="form-group">
+			{!! Form::label('content_comment', 'Komentar anda : ') !!}
+			{!! Form::textarea('content_comment', null, ['class' => 'form-control', 'placeholder' => 'Masukkan komentar anda']) !!}
+		</div>
+		{!! Form::submit('Kirim Komentar', ['class' => 'btn btn-primary btn-block']) !!}
+		{!! Form::close() !!}
+	</div>
 </div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://ambrizalofficialsblog.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>		
+	
 @stop

@@ -88,6 +88,25 @@ footer p {
 	max-width:100% !important;
 	height:auto !important;
 }
+.info-article .time_article {
+	background:#ff2424;
+	color:#fff;
+	display: flex;
+}
+.info-article .time_article .content{
+	margin:auto 0;
+}
+.info-article .time_article span{
+	display:grid;
+	text-align: center;
+}
+.info-article .time_article .date{
+	font-size:3em;
+	line-height: 1.2em;
+}
+.info-article .time_article .year{
+	margin-bottom:0.5em;
+}
 .article-box{
 	display: inline-block;
 	margin: 15px 0;
@@ -131,6 +150,9 @@ footer p {
 		background:#efefef;
 		top:0;
 		margin-bottom:0;
+	}
+	.info-article .head h2{
+		font-size:1.5em !important;
 	}
 	.cover-article{
 		height: auto;
